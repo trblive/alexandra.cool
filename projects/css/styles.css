@@ -1,0 +1,136 @@
+
+/*
+        Table of Contents
+        ------------------
+        :: 0.0 – general
+        ------------------
+        :: 1.0 – header
+        ------------------
+        :: 2.0 – main
+        ------------------
+        :: 3.0 – media queries
+        ------------------
+*/
+
+/*  ------------------
+    0.0 – general
+    ------------------ */
+#wrapper {
+    background-color: #AEB1FC;
+}
+
+/*  ------------------
+    1.0 – header
+    ------------------ */
+header ul.blur {
+    background-color: rgba(204, 210, 255, 0.4);
+}
+header ul li.blur {
+    background-color: rgba(229, 232, 255, 0.4);
+}
+
+/*  ------------------
+    2.0 – main
+    ------------------ */
+section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 0 80px 80px 80px;
+}
+.tile {
+    display: inline-flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    padding: 40px 0 0 60px;
+    border: 2px solid black;
+    border-radius: 16px;
+    box-shadow: 7px 7px black;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    height: 550px;
+    background-color: #CCD2FF;
+}
+.tile h2 {
+    margin: 0 60px 0 0;
+    font-family: Source-Code, sans-serif;
+    font-size: 2em;
+}
+.tile p {
+    margin: 0 60px 0 0;
+    font-size: 1em;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.tile figure {
+    margin: 40px 0 0 0;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 16px 0 16px 0;
+    transition: all 0.5s ease;
+}
+.tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 7px 7px 50px 0 black;
+    background-color: #BFC6FF;
+}
+.tile:hover figure {
+    transform: translateY(16px);
+}
+#marketplace {
+    width: 55%;
+}
+#progress {
+    width: 35%;
+}
+img {
+    height: 100%;
+}
+
+/*  ------------------
+    3.0 – media queries
+    ------------------ */
+@media only screen and (max-width: 1080px) {
+    section {
+        justify-content: center;
+        gap: 50px;
+    }
+    #marketplace, #progress {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 780px) {
+    main h1 {
+        font-size: 60px;
+    }
+    section {
+        margin: 0 0 80px 0;
+    }
+}
+@media only screen and (max-width: 640px) {
+    section {
+        margin: 0 0 40px 0;
+    }
+}
+@media only screen and (max-width: 440px) {
+    main h1 {
+        font-size: 50px;
+    }
+    section {
+        margin: 0 0 80px 0;
+    }
+    #marketplace, #progress {
+        width: 80%;
+    }
+    .tile p, .tile h2 {
+        margin: 0 30px 0 0;
+    }
+    .tile h2 {
+        font-size: 1.5em;
+    }
+}
+@media only screen and (max-width: 340px) {
+    main h1 {
+        font-size: 40px;
+    }
+}

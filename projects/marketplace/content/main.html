@@ -1,0 +1,111 @@
+<main>
+    <section id="title">
+        <h1>The MarketPlace</h1>
+        <h2>Class assignment</h2>
+        <h3>Semester 1, 2023</h3>
+    </section>
+    
+    <figure id="style-tile">
+        <img src="images/style-tile.jpg" alt="Style tile for The MarketPlace colour palette, text and sample images.">
+        <figcaption>Designing the theme of the MarketPlace website.</figcaption>
+    </figure>
+    <hgroup class="maintext">
+        <h2>Overview</h2>
+        <p><span>The MarketPlace</span> was a mock "client" given to the Certificate IV students for our third major assignment, who required a complete redesign of their existing website. After interviewing the client to determine their requirements, and creating wireframes and mockups for each webpage, I spent several weeks building, testing and perfecting the final website. The original "website" seemed to have been pulled straight from 2002, so it definitely deserved a few touch-ups.</p>
+    </hgroup>
+    <figure id="hero">
+        <img src="images/home1.jpg" alt="Home page of The MarketPlace website.">
+        <figcaption>The final homepage design of the website.</figcaption>
+    </figure>
+    <hgroup class="maintext">
+        <h2>Designing for mobile</h2>
+        <p>One of the key assessment criteria for the assignment was that the website be responsive and fully functional on a mobile screen width. Up to this point, I had only ever built webpages for desktop, so this was a new challenge.</p>
+    </hgroup>
+    <div id="wireframes">
+        <figure class="mobile">
+            <img src="images/products-mobile.png" alt="Wireframe of the MarketPlace 'Products' page.">
+        </figure>
+        <div id="arrows">
+            <img src="images/arrow1.png" alt="Arrow pointing left, towards the 'Products' wireframe." id="arrow1">
+            <img src="images/circle.png" alt="Red circle with text that reads 'Scroll!'" id="circle">
+            <img src="images/arrow1.png" alt="Arrow pointing right, towards the 'About Us' wireframe." id="arrow2">
+        </div>
+        <figure class="mobile">
+            <img src="images/about-us-mobile.png" alt="Wireframe of the MarketPlace 'About Us' page.">
+        </figure>
+    </div>
+    <div class="maintext">
+        <p>I quickly realised that my designs just couldn't be made responsive with media queries alone, so I had to get comfortable using JavaScript (which I had previously been avoiding).</p>
+        <p>I taught myself how to create accordions and drop-down menus, which allowed me to collapse large elements down to an interactive mobile format.</p>
+    </div>
+
+    <!-- EXAMPLES FROM ASSESSMENT 3(C) -->
+
+    <div id="examples">
+        <div class="toggle">
+            <p>Desktop</p>
+            <label class="switch">
+                <input type="checkbox" id="mobile-toggle">
+                <span class="slider"></span>
+            </label>
+            <p>Mobile</p>
+        </div>
+
+        <aside id="about-menu">
+            <div>
+                <button type="button" id="aboutButton" class="selectButton">Jump to section<i class="fa-solid fa-chevron-down"></i></button>
+                <ul id="aboutList">
+                    <li><a class="active">Company mission</a></li>
+                    <li><a>History</a></li>
+                    <li><a>Company policies</a></li>
+                    <li><a>Our team</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <section id="our-history" class="section-style">
+            <h2>Our History</h2>
+            <!-- new accordion lol -->
+            <dl id="timeline">
+                <dt>
+                    <p>1969</p>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </dt>
+                <dd>
+                    <p>Company opens first store in March, operating through a small leased shopfront 10 metres by 10 metres, selling floor coverings. George and Jean serve customers in the shop and one other person assists them in the shop. Warren Preuss is employed to set up links with the major suppliers and manage ordering of stock. Two carpet layers are employed to cut and install. A warehouse in an industrial area has also been leased to store the products.</p>
+                </dd>
+                <dt>
+                    <p>1973</p>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </dt>
+                <dd>
+                    <p>Instead of continuing the lease, the Alexanders decide to purchase a larger warehouse space. Open warehouse sales area for larger bulk purchases for housing developments and motels. Ordering and invoicing are handled by Lyn Slater and Robyn Davis, who worked part-time. An external accountant manages the remaining financial affairs.</p>
+                </dd>
+                <dt>
+                    <p>1980-1985</p>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </dt>
+                <dd>
+                    <button type="button" class="transcript flex-row"><i class="fa-regular fa-file-audio"></i>Transcript</button>
+                </dd>
+                <dt>
+                    <p>1997-2000</p>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </dt>
+                <dd>
+                    <p>Attempts to decentralise much of the data processing seem to be successful. Headquarters at the capital city store still manages purchasing, warehousing and marketing. The two capital city stores amalgamate into one new superstore in the Central Business District. A gala opening occurs.</p>
+                    <button type="button" class="transcript flex-row"><i class="fa-regular fa-file-audio"></i>Transcript</button>
+                </dd>
+            </dl>
+        </section>
+    </div>
+
+    <hgroup class="maintext">
+        <h2>What I learned</h2>
+    </hgroup>
+    <div id="learn">
+        <p>Over the course of this project, I discovered that JavaScript isn't as confusing as it initially seemed. While I sometimes still don't understand why or how things work the way they do, I've become much more confident in applying what I already know to try something new.</p> 
+        <p>I also got a solid opportunity to get familiar with CSS, trying out many properties that I hadn't yet tried. By the end, I had enormous stylesheets with hundreds of lines of code, and my HTML code relied heavily on div elements to achieve my designs.</p>
+        <p>While it definitely wasn't the worst code I've ever seen, it still felt too untidy for my tastes. Since then, I've avoided using div elements wherever possible, trying my best to find a more semantic element to use in its place.</p>
+        <p>Ultimately, I want my code to be readable and accessible for everyone, no matter who ends up reading it. Now that I'm becoming more comfortable building my own webpages, I can focus more of my energy on making sure they are semantic and tidy.</p>
+    </div>

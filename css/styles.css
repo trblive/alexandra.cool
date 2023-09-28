@@ -1,0 +1,722 @@
+
+/*
+        Table of Contents
+        ------------------
+        :: 0.0 – general
+        ------------------
+        :: 1.0 – header
+        ------------------
+        :: 2.0 – main
+            // 2.1 – opening button
+            // 2.2 – 'hello world'
+            // 2.3 – personal info
+            // 2.4 – more
+        ------------------
+        :: 3.0 – footer
+        ------------------
+        :: 4.0 – animations
+            // 4.1 – keyframe definitions
+            // 4.2 – keyframe assignments
+        ------------------
+        :: 5.0 – media queries
+        ------------------
+*/
+
+/*  ------------------
+    0.0 – general
+    ------------------ */
+#wrapper {
+    height: 100%;
+    min-height: 600px;
+    overscroll-behavior: contain;
+    background-color: #1E1E1C;
+}
+section, div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+p {
+    font-size: 18px;
+}
+#info, #more {
+    display: none !important;
+}
+#wrapper.open #info, #wrapper.open #more, #wrapper.open footer{
+    display: flex !important;
+    opacity: 1;
+}
+
+/*  ------------------
+    1.0 – header
+    ------------------ */
+header ul.blur {
+    background-color: rgba(51, 51, 46, 0.4);
+}
+header ul li.blur {
+    background-color: rgba(110, 110, 104, 0.4);
+}
+
+
+/*  ------------------
+    2.0 – main
+    ------------------
+
+    // 2.1 – opening button
+    ------------------ */
+#button {
+    background-color: #FF7DBA;
+    min-width: 0;
+    width: 195px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #fc49ad;
+    border-radius: 16px;
+    animation: wiggle 10s ease infinite;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-family: Source-Code, sans-serif;
+    color: #1E1E1C;
+    padding: 30px;
+    text-align: center;
+    vertical-align: center;
+    font-weight: 600;
+    text-shadow: 1px 1px #fc49ad;
+    z-index: 1;
+}
+
+/*  ------------------
+    // 2.2 – 'hello world'
+    ------------------ */
+#hello {
+    padding: 80px;
+    background-color: #1E1E1C;
+    height: calc(100vh - 141.5px);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+}
+#hello-world {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+}
+#hello-world li {
+    grid-row: 1;
+    font-size: 160px;
+    font-weight: bold;
+    padding: 0 0 80px 0;
+    margin: 0;
+    color: #FEFDEC;
+    font-family: Source-Code, sans-serif;
+    white-space: nowrap;
+    list-style: none;
+    visibility: hidden;
+    min-width: 0;
+}
+#wrapper.open #h {
+    grid-column: 1/2;
+    animation: typing 0.1s forwards;
+    animation-delay: 2s;
+}
+#wrapper.open #e {
+    grid-column: 2/3;
+    animation: typing 0.1s forwards;
+    animation-delay: 2.1s;
+}
+#wrapper.open #l1 {
+    grid-column: 3/4;
+    animation: typing 0.1s forwards;
+    animation-delay: 2.2s;
+}
+#wrapper.open #l2 {
+    grid-column: 4/5;
+    animation: typing 0.1s forwards;
+    animation-delay: 2.3s;
+}
+#wrapper.open #o1 {
+    grid-column: 5/6;
+    animation: typing 0.1s forwards;
+    animation-delay: 2.4s;
+}
+#wrapper.open #comma {
+    grid-column: 6/7;
+    animation: typing 0.1s forwards;
+    animation-delay: 2.5s;
+}
+#wrapper.open #space {
+    grid-column: 7/8;
+    animation: typing 0.1s forwards;
+    animation-delay: 2.6s;
+}
+#wrapper.open #w {
+    grid-column: 8/9;
+    animation: typing 0.1s forwards;
+    animation-delay: 2.7s;
+}
+#wrapper.open #o2 {
+    grid-column: 9/10;
+    animation: typing 0.1s forwards;
+    animation-delay: 2.8s;
+}
+#wrapper.open #r {
+    grid-column: 10/11;
+    animation: typing 0.1s forwards;
+    animation-delay: 2.9s;
+}
+#wrapper.open #l3 {
+    grid-column: 11/12;
+    animation: typing 0.1s forwards;
+    animation-delay: 3s;
+}
+#wrapper.open #d {
+    grid-column: 12/13;
+    animation: typing 0.1s forwards;
+    animation-delay: 3.1s;
+}
+#wrapper.open #stop {
+    grid-column: 13/14;
+    animation: typing 0.1s forwards;
+    animation-delay: 3.2s;
+}
+#about-me {
+    display: flex;
+    padding: 0 0 80px 0;
+    justify-content: flex-start;
+    width: 70%;
+    transform: translateY(40%);
+}
+#about-me h2 {
+    font-size: 2em;
+    font-family: Source-Code, sans-serif;
+    color: #FEFDEC;
+    margin: 0;
+}
+#about-me p {
+    color:#FEFDEC;
+    font-size: 1.25em;
+    margin: 30px 0 0 0;
+}
+#about-me a {
+    color: #FF7DBA;
+}
+
+/*  ------------------
+    // 2.3 – personal info
+    ------------------ */
+#info {
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding: 80px;
+    gap: 40px;
+    border-top: 2px solid black;
+    background-color: #FF7DBA;
+}
+#info article {
+    background-color: #FEFDEC;
+    padding: 30px;
+    border-radius: 25px;
+    border: 2px solid black;
+    box-shadow: 7px 7px black;
+}
+#education {
+    width: 300px;
+}
+#skills {
+    width: 460px;
+}
+#goals {
+    width: 400px;
+}
+main h3 {
+    margin: 0;
+    font-size: 1.75em;
+    font-family: Source-Code, sans-serif;
+    text-align: center;
+}
+main h4 {
+    font-size: 1.25em;
+}
+
+article ul {
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    justify-content: center;
+    margin: 30px 0 0 0;
+    padding: 0;
+    gap: 10px;
+}
+article ul li {
+    padding: 10px;
+    background-color: #8488F4;
+    border: 2px solid #585EFF;
+    border-radius: 16px;
+    color: white;
+    text-shadow: -2px 0 #585EFF;
+    text-align: center;
+}
+
+/*  ------------------
+    // 2.4 – more
+    ------------------ */
+#more {
+    border-top: 2px solid black;
+    padding: 80px;
+    text-align: center;
+    background-color: #78D7FF;
+    display: flex;
+    justify-content: center;
+}
+#more article {
+    background-color: #FEFDEC;
+    padding: 40px;
+    border-radius: 25px;
+    border: 2px solid black;
+    box-shadow: 7px 7px black;
+    width: 60%;
+    min-width: 480px;
+}
+#more article div {
+    gap: 20px;
+}
+#more a {
+    padding: 20px;
+    background-color: #ffc347;
+    border: 2px solid black;
+    border-radius: 25px;
+    box-shadow: 7px 7px black;
+}
+
+/*  ------------------
+    3.0 – footer
+    ------------------ */
+footer {
+    display: none !important;
+    opacity: 0;
+}
+
+/*  ------------------
+    4.0 – animations
+    ------------------
+
+    // 4.1 – keyframe definition
+    ------------------ */
+@keyframes click {
+    0% {
+        width: 195px;
+        height: 100px;
+        border: 3px solid #fc49ad;
+        border-radius: 16px;
+        opacity: 1;
+        color: #1E1E1C;
+    }
+    10% {
+        width: 185px;
+        height: 90px;
+        border: 3px solid #fc49ad;
+        border-radius: 16px;
+        opacity: 1;
+        color: #1E1E1C;
+    }
+    /*0.4s*/
+    20% {
+        width: 195px;
+        height: 100px;
+        border: 3px solid #fc49ad;
+        border-radius: 16px;
+        opacity: 1;
+        color: #1E1E1C;
+    }
+    25% {
+        border-radius: 50%;
+        border: 0;
+        opacity: 1;
+        color: transparent;
+        text-shadow: none;
+    }
+    /* 0.8s */
+    40% {
+        width: 100vh;
+        height: 100vh;
+        border-radius: 50%;
+        border: 0;
+        opacity: 1;
+        color: transparent;
+        text-shadow: none;
+    }
+    /* 1.2s */
+    60% {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        border: 0;
+        opacity: 1;
+        color: transparent;
+        text-shadow: none;
+    }
+    99% {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        border: 0;
+        opacity: 1;
+        color: transparent;
+        text-shadow: none;
+    }
+    100% {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        padding: 0;
+    }
+}
+@keyframes fillScreen {
+    0% {
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background-color: #1E1E1C;
+    }
+    50% {
+        width: 100vh;
+        height: 100vh;
+        border-radius: 50%;
+        background-color: #1E1E1C;
+    }
+    99% {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        background-color: #1E1E1C;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+}
+@keyframes pulse {
+    0%  {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+@keyframes wiggle {
+    0% {
+        transform: translate(-50%, -50%) rotate(-3deg)
+    }
+    1.333% {
+        transform: translate(-50%, -50%) rotate(5deg);
+    }
+    2.667% {
+        transform: translate(-50%, -50%) rotate(-5deg);
+    }
+    4% {
+        transform: translate(-50%, -50%) rotate(1deg);
+    }
+    6% {
+        transform: translate(-50%, -50%) rotate(-1deg);
+    }
+    6.667% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+}
+@keyframes typing {
+    from { visibility: hidden; }
+    to { visibility: visible; }
+}
+
+/*  ------------------
+    // 4.2 – keyframe & transition assignment
+    ------------------
+        4.2.1 – opening button
+        4.2.2 – nav bar
+        4.2.3 – 'hello world'
+        4.2.4 – other
+    ------------------
+
+    // 4.2.1 – opening button
+    ------------------*/
+#button:hover {
+    animation: pulse 0.4s ease infinite alternate;
+}
+#button.click {
+    animation: click 1s linear forwards;
+    overflow: hidden;
+}
+#button.click + #filler {
+    animation: fillScreen 0.7s linear forwards;
+    animation-delay: 0.3s;
+}
+#filler {
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    min-width: 0;
+}
+
+/*  ------------------
+    // 4.2.2 – nav bar
+    ------------------ */
+nav {
+    transform: translateY(-40%);
+    transition: all 0.3s ease-out;
+    opacity: 0;
+}
+#wrapper.open nav {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 4s;
+    animation-delay: 4s;
+}
+#wrapper.open nav a, #wrapper.open nav i {
+    color: #FEFDEC;
+}
+
+/*  ------------------
+    // 4.2.3 – 'hello world'
+    ------------------ */
+#wrapper #hello section {
+    transition: 0.3s;
+    transition-timing-function: ease-out;
+    opacity: 0;
+}
+#wrapper.open #hello section {
+    transform: translateY(0);
+    animation: fadeIn 1s forwards;
+    transition-delay: 4s;
+    animation-delay: 4s;
+}
+
+/*  ------------------
+    // 4.2.4 – other
+    ------------------ */
+.reveal {
+    transform: translateY(-10%);
+    transition: 0.7s;
+    transition-timing-function: ease-out;
+    opacity: 0;
+}
+.reveal.active {
+    transform: translateY(0);
+    animation: fadeIn 1s forwards;
+}
+
+/*  ------------------
+    5.0 – media queries
+    ------------------ */
+@media only screen and (max-width: 1404px) {
+    #hello-world li {
+        font-size: 120px;
+    }
+    #education {
+        width: 40%;
+        min-width: 300px;
+    }
+    #skills {
+        width: 50%;
+        min-width: 460px;
+    }
+    #goals {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 1080px) {
+    #hello-world li {
+        font-size: 100px;
+    }
+    #hello section {
+        width: 90%;
+        height: auto;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    #education, #skills, #goals {
+        width: 100%;
+        min-width: 0;
+    }
+}
+@media only screen and (max-width: 900px) {
+    #hello-world li {
+        font-size: 80px;
+    }
+    #about-me h2 {
+        font-size: 1.5em;
+        line-height: 1.7;
+    }
+    #about-me p {
+        font-size: 1em;
+    }
+}
+@media only screen and (max-width: 780px) {
+    #hello-world li {
+        font-size: 60px;
+        padding: 0 0 50px 0;
+    }
+    #more article {
+        width: 100%;
+        min-width: 0;
+    }
+}
+@media only screen and (max-width: 640px) {
+    header {
+        transform: translateY(-40%);
+    }
+    #wrapper header {
+        transition: 0.3s;
+        transition-timing-function: ease-out;
+        opacity: 0;
+        background-color: transparent;
+    }
+    #wrapper.open header {
+        background-color: #ff7dba;
+        transform: translateY(0);
+        animation: fadeIn 1s;
+        opacity: 1;
+        transition-delay: 4s;
+    }
+    #wrapper.open nav a, #wrapper.open nav i {
+        color: #1E1E1C;
+    }
+    #hello {
+        height: calc(100vh - 63px);
+    }
+    #hello-world {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 1fr 1fr;
+    }
+    #hello-world  li {
+        font-size: 100px;
+        padding: 0;
+    }
+    #about-me {
+        padding: 40px 0 0 0;
+    }
+    #wrapper.open #h {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        animation: typing 0.1s forwards;
+        animation-delay: 2s;
+    }
+    #wrapper.open #e {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        animation: typing 0.1s forwards;
+        animation-delay: 2.1s;
+    }
+    #wrapper.open #l1 {
+        grid-column: 3/4;
+        grid-row: 1/2;
+        animation: typing 0.1s forwards;
+        animation-delay: 2.2s;
+    }
+    #wrapper.open #l2 {
+        grid-column: 4/5;
+        grid-row: 1/2;
+        animation: typing 0.1s forwards;
+        animation-delay: 2.3s;
+    }
+    #wrapper.open #o1 {
+        grid-column: 5/6;
+        grid-row: 1/2;
+        animation: typing 0.1s forwards;
+        animation-delay: 2.4s;
+    }
+    #wrapper.open #comma {
+        grid-column: 6/7;
+        grid-row: 1/2;
+        animation: typing 0.1s forwards;
+        animation-delay: 2.5s;
+    }
+    #wrapper.open #space {
+        grid-column: 7/8;
+        grid-row: 2/3;
+        animation: typing 0.1s forwards;
+        animation-delay: 2.6s;
+    }
+    #wrapper.open #w {
+        grid-column: 1/2;
+        grid-row: 2/3;
+        animation: typing 0.1s forwards;
+        animation-delay: 2.7s;
+    }
+    #wrapper.open #o2 {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        animation: typing 0.1s forwards;
+        animation-delay: 2.8s;
+    }
+    #wrapper.open #r {
+        grid-column: 3/4;
+        grid-row: 2/3;
+        animation: typing 0.1s forwards;
+        animation-delay: 2.9s;
+    }
+    #wrapper.open #l3 {
+        grid-column: 4/5;
+        grid-row: 2/3;
+        animation: typing 0.1s forwards;
+        animation-delay: 3s;
+    }
+    #wrapper.open #d {
+        grid-column: 5/6;
+        grid-row: 2/3;
+        animation: typing 0.1s forwards;
+        animation-delay: 3.1s;
+    }
+    #wrapper.open #stop {
+        grid-column: 6/7;
+        grid-row: 2/3;
+        animation: typing 0.1s forwards;
+        animation-delay: 3.2s;
+    }
+    main h3 {
+        font-size: 1.65em;
+    }
+}
+@media only screen and (max-width: 520px) {
+    #hello-world li {
+        font-size: 80px;
+    }
+}
+@media only screen and (max-width: 460px) {
+    #hello, #info, #more {
+        padding: 40px;
+    }
+    #about-me {
+        padding: 0;
+    }
+}
+@media only screen and (max-width: 380px) {
+    #hello-world li {
+        font-size: 60px;
+    }
+    main h3 {
+        font-size: 1.5em;
+    }
+    main h4 {
+        font-size: 1em;
+    }
+    main p {
+        font-size: 14px;
+    }
+    #more a {
+        font-size: 0.8em;
+    }
+}

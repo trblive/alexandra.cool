@@ -1,0 +1,333 @@
+
+/*
+        Table of Contents
+        ------------------
+        :: 0.0 – general
+        ------------------
+        :: 1.0 – header
+        ------------------
+        :: 2.0 – main
+            // 2.1 – heading
+            // 2.2 – form setup
+            // 2.3 – validation
+        ------------------
+        :: 3.0 – hcard
+        ------------------
+        :: 4.0 – animations
+        ------------------
+        :: 5.0 – media queries
+        ------------------
+*/
+
+/*  ------------------
+    0.0 – general
+    ------------------ */
+#wrapper {
+    background-color: #FEFDEC;
+}
+p {
+    margin: 16px;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*  ------------------
+    1.0 – header
+    ------------------ */
+header ul.blur {
+    background-color: rgba(242, 240, 206, 0.5);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+header ul li.blur {
+    background-color: rgba(252, 74, 157, 0.4);
+}
+
+/*  ------------------
+    2.0 – main
+
+    // 2.1 – heading
+    ------------------ */
+hgroup {
+    border-bottom: 2px solid #1E1E1C;
+}
+
+/*  ------------------
+    // 2.2 – form setup
+    ------------------ */
+form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF7DBA;
+}
+fieldset {
+    background-color: white;
+    border: 2px solid #1E1E1C;
+    border-top: 0;
+    border-bottom: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 50%;
+    padding: 0 40px;
+}
+label {
+    padding: 16px;
+    position: relative;
+}
+input, textarea {
+    display: block;
+    margin: 8px 0;
+    padding: 10px;
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #1E1E1C;
+    border-radius: 8px;
+}
+textarea {
+    height: 100px;
+}
+#reason, #contact {
+    padding-bottom: 16px;
+}
+#attachmentLabel, #contact label, #submitForm label {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 16px;
+    align-items: center;
+    cursor: pointer;
+}
+
+/*  ------------------
+    // 2.2.1 – personal details
+    ------------------ */
+#details {
+    display: flex;
+    flex-flow: row wrap;
+    padding-top: 20px;
+}
+#details label {
+    width: 50%;
+}
+
+/*  ------------------
+    // 2.2.2 – reason
+    ------------------ */
+#attachmentLabel {
+    display: inline-flex;
+    width: fit-content;
+    border: 1px solid #1E1E1C;
+    border-radius: 8px;
+}
+#upload {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin: 0 16px 8px 16px;
+}
+#uploadField {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 16px;
+}
+#resetFile {
+    background-color: #ffc347;
+    border: 2px solid #E8AC33;
+}
+input[type="file"] {
+    display: none;
+}
+#uploadText {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+#uploadInfo {
+    cursor: pointer;
+}
+#toolTip {
+    opacity: 0;
+    position: absolute;
+    right: -260px;
+    width: 180px;
+    top: -16px;
+    background-color: #FEFDEC;
+    padding: 16px;
+    border: 2px solid #1E1E1C;
+    border-radius: 16px;
+    transition: 0.1s linear;
+}
+#uploadInfo:hover + #toolTip {
+    animation: shadow 0.1s forwards;
+    animation-delay: 0.1s;
+}
+
+/*  ------------------
+    // 2.2.3 – method of contact
+    ------------------ */
+#contact {
+    position: relative;
+}
+#contact label {
+    padding-top: 0;
+}
+#contact label:nth-child(3) {
+    padding-bottom: 0;
+}
+input[type="radio"], input[type="checkbox"] {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+/*  ------------------
+    // 2.2.4 – submit
+    ------------------ */
+#termsLabel {
+    justify-content: center;
+}
+#buttons {
+    padding-bottom: 36px;
+    display: flex;
+    gap: 16px;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+button {
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+#submit {
+    background-color: #FF7DBA;
+    color: white;
+    border: 2px solid #fc49ad;
+}
+#clear {
+    background-color: #AEB1FC;
+    color: white;
+    border: 2px solid #8488F4;
+}
+
+/*  ------------------
+    // 2.3 – validation
+    ------------------ */
+.error, .correct {
+    font-size: 0.9em;
+    color: #fc49ad;
+}
+#details .correct, #messageCorrect {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+#uploadError, #attachmentLabelCorrect, #radiosError {
+    padding: 0 16px;
+}
+#radiosError {
+    margin-top: 10px;
+}
+#radiosCorrect {
+    position: absolute;
+    top: 16px;
+    right: 40px;
+}
+
+/*  ------------------
+    3.0 – hcard
+    ------------------ */
+#hcard-example {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #AEB1FC;
+    border-top: 2px solid #1E1E1C;;
+    padding: 30px 0;
+}
+#hcard-example article {
+    background-color: white;
+    border: 2px solid #1E1E1C;
+    border-radius: 16px;
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+#hcard-example h2 {
+    font-size: 1.5em;
+    text-align: center;
+}
+.adr {
+    display: flex;
+    flex-flow: column nowrap;
+    list-style: none;
+}
+
+/*  ------------------
+    4.0 – animations
+    ------------------ */
+@keyframes shadow {
+    0% { box-shadow: none; }
+    100% { box-shadow: 7px 7px #1E1E1C; }
+}
+
+/*  ------------------
+    5.0 – media queries
+    ------------------ */
+@media only screen and (max-width: 900px) {
+    fieldset, #hcard-example h2, #hcard-example ul {
+        width: 70%;
+    }
+    #toolTip {
+        right: 0;
+        top: auto;
+        bottom: -160px;
+        z-index: 1;
+    }
+}
+@media only screen and (max-width: 640px) {
+    #wrapper header {
+        background-color: #ff7dba;
+    }
+    main h1 {
+        font-size: 60px;
+    }
+}
+@media only screen and (max-width: 530px) {
+    #details label {
+        width: 100%;
+    }
+    fieldset {
+        padding: 0 20px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    main h1 {
+        font-size: 40px;
+    }
+    fieldset, #hcard-example h2, #hcard-example ul {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 330px) {
+    #toolTip {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

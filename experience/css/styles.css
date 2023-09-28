@@ -1,0 +1,384 @@
+
+/*
+        Table of Contents
+        ------------------
+        :: 0.0 – general
+        ------------------
+        :: 1.0 – header
+        ------------------
+        :: 2.0 – main
+            // 2.1 – opening button
+            // 2.2 – 'hello world'
+            // 2.3 – personal info
+            // 2.4 – more
+        ------------------
+        :: 3.0 – footer
+        ------------------
+        :: 4.0 – animations
+            // 4.1 – keyframe definitions
+            // 4.2 – keyframe assignments
+        ------------------
+        :: 5.0 – media queries
+        ------------------
+*/
+
+/*  ------------------
+    0.0 – general
+    ------------------ */
+#wrapper.locked {
+    overflow: scroll;
+    overscroll-behavior: contain;
+    background-color: #FF7DBA;
+    height: 100vh ;
+}
+#wrapper.unlocked {
+    background-color: #78D7FF;
+}
+h2 {
+    padding: 0 0 20px 0;
+}
+main h3 {
+    font-size: 1.5em;
+    padding: 0 0 20px 0;
+}
+p {
+    font-size: 1.25em;
+}
+
+/*  ------------------
+    1.0 – header
+    ------------------ */
+header ul.blur {
+    background-color: rgba(108, 181, 212, 0.5);
+}
+header ul li.blur {
+    background-color: rgba(199, 238, 255, 0.5);
+}
+
+/*  ------------------
+    2.0 – main
+
+    // 2.1 – password popup
+    ------------------ */
+#wrapper.locked #popup {
+    display: block;
+}
+#wrapper.unlocked #popup {
+    display: none;
+}
+#popup  {
+    width: 30%;
+    min-width: 355px;
+    padding: 30px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 16px;
+    box-shadow: 7px 7px black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+p span {
+    color: #fc49ad;
+    font-weight: 600;
+}
+#passwordInput {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+label {
+    width: 70%;
+}
+input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 7px;
+}
+input[type="submit"] {
+    padding: 10px;
+    width: 27%;
+    min-width: 76px;
+    border: 1px solid black;
+    border-radius: 7px;
+    background-color: #AEB1FC;
+    cursor: pointer;
+}
+
+/*  ------------------
+    // 2.3 – accordion
+    ------------------ */
+#accordionSection {
+    border-top: 2px solid #1E1E1C;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    margin-bottom: -2px;
+}
+dl {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 70%;
+    margin: 0;
+}
+dt {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 30px;
+    margin-top: -2px;
+    border: 2px solid #1E1E1C;
+    transition: 0.4s;
+    cursor: pointer;
+}
+dt p, dt i {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5em;
+    font-family: Source-Code, sans-serif;
+}
+dt p {
+    min-width: 50px;
+    margin: 0;
+}
+dt i {
+    transition: 0.4s;
+    min-width: 20px;
+}
+.rotate {
+    transform: rotate(45deg);
+}
+dd {
+    margin: 0; 
+    border-left: 2px solid #1E1E1C;
+    border-right: 2px solid #1E1E1C;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+dd ul {
+    margin: 30px;
+    padding: 0 25px;
+}
+dd:nth-child(2) {
+    background-color: #FF7DBA;
+}
+dd:nth-child(4) {
+    background-color: #ffc347;
+}
+dd:nth-child(6) {
+    background-color: #AEB1FC;
+}
+dd:nth-child(8) {
+    background-color: #ffc347;
+}
+dd:nth-child(10) {
+    background-color: #FF7DBA;
+}
+dd ul li {
+    padding: 0 0 0 15px;
+    font-size: 1.15em;
+    margin: 8px 0;
+}
+
+/*  ------------------
+    3.0 – footer
+    ------------------ */
+footer {
+    display: none;
+    opacity: 0;
+}
+
+/*  ------------------
+    4.0 – animations
+    ------------------
+
+    // 4.1 – keyframe definition
+    ------------------ */
+@keyframes shaking {
+    0% { transform: translateX(-50%) translateY(-50%) }
+    25% { transform: translateX(-52%) translateY(-50%) }
+    50% { transform: translateX(-48%) translateY(-50%) }
+    75% { transform: translateX(-52%) translateY(-50%) }
+    100% { transform: translateX(-50%) translateY(-50%) }
+}
+
+/*  ------------------
+    // 4.2 – keyframe & transition assignment
+    ------------------
+        4.2.1 – nav
+        4.2.2 – heading
+        4.2.3 – accordion
+        4.2.4 – footer
+        4.2.5 – password popup
+    ------------------
+
+    // 4.2.1 – nav
+    ------------------*/
+nav {
+    transform: translateY(-40%);
+    transition: all 0.3s ease-out;
+    opacity: 0;
+}
+#wrapper.unlocked nav {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 2s;
+    animation-delay: 2s;
+}
+
+/*  ------------------
+    // 4.2.2 – heading
+    ------------------ */
+#wrapper hgroup {
+    transform: translateY(-20%);
+    transition: 0.5s;
+    transition-timing-function: ease-out;
+    opacity: 0;
+}
+#wrapper.unlocked hgroup {
+    transform: translateY(0);
+    animation: fadeIn 1s;
+    transition-delay: 2s;
+    animation-delay: 2s;
+    opacity: 1;
+}
+
+/*  ------------------
+    // 4.2.3 – accordion
+    ------------------ */
+#wrapper #accordionSection {
+    transform: translateY(20%);
+    transition: 0.5s;
+    transition-timing-function: ease-out;
+    opacity: 0;
+}
+#wrapper.unlocked #accordionSection {
+    transform: translateY(0);
+    animation: fadeIn 1s forwards;
+    transition-delay: 2s;
+    animation-delay: 2s;
+}
+
+/*  ------------------
+    // 4.2.4 – footer
+    ------------------ */
+#wrapper.unlocked footer {
+    display: flex;
+    animation: fadeIn 1s forwards;
+    animation-delay: 2s;
+}
+
+/*  ------------------
+    // 4.2.5 – password popup
+    ------------------ */
+#popup.shaking {
+    animation: shaking 0.2s ease;
+}
+
+/*  ------------------
+    5.0 – media queries
+    ------------------ */
+@media only screen and (max-width: 830px) {
+    dl {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 740px) {
+    main main h1 {
+        font-size: 60px;
+    }
+    dl {
+        width: 100%;
+    }
+    dt {
+        border-left: 0;
+        border-right: 0;
+    }
+    dd {
+        border: 0;
+    }
+}
+@media only screen and (max-width: 640px) {
+    header {
+        transform: translateY(-40%);
+    }
+    #wrapper header {
+        transition: 0.3s;
+        transition-timing-function: ease-out;
+        opacity: 0;
+    }
+    #wrapper.unlocked header {
+        transform: translateY(0);
+        animation: fadeIn 1s;
+        transition-delay: 2s;
+        animation-delay: 2s;
+        opacity: 1;
+    }
+}
+@media only screen and (max-width: 570px) {
+    dt p, dt i {
+        font-size: 1.25em;
+    }
+}
+@media only screen and (max-width: 500px) {
+    #popup {
+        width: 70%;
+        min-width: 0;
+    }
+    #popup h3 {
+        font-size: 1.25em;
+        padding: 0 0 10px 0;
+    }
+    #popup p {
+        font-size: 1em;
+        margin: 10px 0;
+    }
+}
+@media only screen and (max-width: 480px) {
+    #popup {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 440px) {
+    main h1 {
+        font-size: 50px;
+    }
+}
+@media only screen and (max-width: 415px) {
+    #passwordInput {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    label {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 390px) {
+    main h1 {
+        font-size: 40px;
+    }
+    dd ul li {
+        font-size: 1em;
+    }
+
+}
+@media only screen and (max-width: 355px) {
+    dt {
+        gap: 15px;
+        padding: 20px;
+    }
+    dd ul {
+        margin: 20px;
+        padding: 0 20px;
+    }
+}
