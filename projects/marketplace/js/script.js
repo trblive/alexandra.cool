@@ -72,12 +72,12 @@ function init() {
 
     // assign event handlers to their events
     U.addEvent(window, 'scroll', U.blurNav);
+    U.addEvent(window, 'load', U.keebInput);
     U.addEvent(U.$('mobile-toggle'), 'click', aboutMenu);
     U.addEvent(U.$('mobile-toggle'),'click', collapseTimeline);
     U.addEvent(U.$('aboutButton'), 'click', openAboutMenu);
     U.addEvent(U.$('mobile-toggle'), 'click', accordion);
     U.addEvent(U.$('menu'), 'click', U.openMenu);
-    U.addEvent(U.$('galleryButton'), 'click', U.goToGallery);
 
 } // end of init() function
 

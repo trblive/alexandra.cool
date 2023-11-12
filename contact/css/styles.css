@@ -54,6 +54,12 @@ header ul li.blur {
 hgroup {
     border-bottom: 2px solid #1E1E1C;
 }
+.link {
+    color: rgba(252, 74, 157, 1);
+}
+.link:hover {
+    text-decoration: underline;
+}
 
 /*  ------------------
     // 2.2 – form setup
@@ -123,6 +129,10 @@ textarea {
     border: 1px solid #1E1E1C;
     border-radius: 8px;
 }
+#attachmentLabel:has(input[type="file"]:focus) {
+    outline: 1px solid #FF7DBA;
+    box-shadow: 0 0 5px #FF7DBA;
+}
 #upload {
     display: flex;
     flex-flow: row wrap;
@@ -142,7 +152,12 @@ textarea {
     border: 2px solid #E8AC33;
 }
 input[type="file"] {
-    display: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
 }
 #uploadText {
     position: relative;
@@ -184,11 +199,39 @@ input[type="file"] {
 #contact label:nth-child(3) {
     padding-bottom: 0;
 }
-input[type="radio"], input[type="checkbox"] {
-    display: inline-block;
-    width: auto;
-    height: auto;
-    margin: 0;
+input[type="radio"] {
+    appearance: none;
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    border: 1px solid #828282;
+    position: relative;
+    background-color: white;
+}
+input[type="radio"]:focus {
+    outline-color: #FF7DBA;
+    outline-offset: 2px;
+    border-color: #FF7DBA;
+}
+input[type="radio"]:checked {
+    border-color: #f64f9e;
+}
+input[type="radio"]:checked:hover {
+    border-color: #f51880;
+}
+input[type="radio"]:checked::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f64f9e;
+}
+input[type="radio"]:checked:hover::after {
+    background-color: #f51880;
 }
 
 /*  ------------------
@@ -197,6 +240,11 @@ input[type="radio"], input[type="checkbox"] {
 #termsLabel {
     justify-content: center;
 }
+input[type="checkbox"] {
+    width: auto;
+    margin-left: 0;
+    outline-offset: 2px;
+}
 #buttons {
     padding-bottom: 36px;
     display: flex;
@@ -204,9 +252,11 @@ input[type="radio"], input[type="checkbox"] {
     flex-flow: row wrap;
     justify-content: flex-end;
 }
-button {
+#buttons input {
     width: 120px;
     height: 30px;
+    margin: 0;
+    padding: 0;
     border-radius: 3px;
     font-size: 16px;
     font-weight: 600;

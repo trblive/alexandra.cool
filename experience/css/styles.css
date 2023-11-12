@@ -44,6 +44,12 @@ main h3 {
 p {
     font-size: 1.25em;
 }
+#wrapper.locked #skipnav {
+    display: none;
+}
+#wrapper.unlocked #skipnav {
+    display: block;
+}
 
 /*  ------------------
     1.0 – header
@@ -128,7 +134,7 @@ dl {
     width: 70%;
     margin: 0;
 }
-dt {
+dt a {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;

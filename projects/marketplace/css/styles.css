@@ -101,7 +101,7 @@ figcaption {
     border-radius: 25px;
     transition: opacity 0.2s ease;
 }
-figure:hover figcaption {
+figure:hover figcaption, figure:focus figcaption {
     opacity: 1;
 }
 #style-tile {
@@ -221,7 +221,7 @@ figure:hover figcaption {
     width: 100%;
     overflow: scroll;
 }
-dt {
+dt a {
     grid-column: 1/2;
     display: flex;
     justify-content: space-between;
@@ -288,7 +288,7 @@ dd::before {
     display: flex;
     flex-flow: column nowrap;
 }
-#timeline.mobileAcc dt {
+#timeline.mobileAcc dt a {
     border: 1px solid #C1C7CD;
     border-left: 0;
     border-right: 0;

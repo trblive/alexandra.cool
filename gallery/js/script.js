@@ -8,9 +8,7 @@ function getIndex(elem, elementList) {
     'use strict';
 
     const elementArray = Array.from(elementList);
-    const index = elementArray.indexOf(elem);
-
-    return index;
+    return elementArray.indexOf(elem);
 } // end of getIndex() function
 
 
@@ -40,7 +38,7 @@ function openImagePopup() {
                 bigSliderImages[i].classList.remove('currentImage');
 
                 // add border highlight for large thumbnail
-                if (imageSrc == bigSliderImages[i].src) {
+                if (imageSrc === bigSliderImages[i].src) {
                     bigSliderImages[i].classList.add('currentImage');
                 }
             } 
@@ -49,12 +47,16 @@ function openImagePopup() {
                 smallSliderImages[i].classList.remove('currentImage');
 
                 // add border highlight for small thumbnail
-                if (imageSrc == smallSliderImages[i].src) {
+                if (imageSrc === smallSliderImages[i].src) {
                     smallSliderImages[i].classList.add('currentImage');
                 }
             }
             // call sliderScroll() function to centre thumbnail
             sliderScroll();
+            // set inert property
+            setInert();
+            // enable focus on slider navigation
+            navFocus();
         })
     });
 } // end of openImagePopup() function
@@ -67,6 +69,7 @@ function closeImagePopup() {
 
     var imagePopup = U.$('imagePopup');
     imagePopup.classList.remove('display');
+    setInert();
 
 } // end of closeImagePopup() function
 
@@ -74,8 +77,7 @@ function closeImagePopup() {
 function getSource(image) {
     'use strict'
     var srcSplit = image.src.split("-g")
-    var imageSrc = srcSplit[0] + '.jpg';
-    return imageSrc;
+    return srcSplit[0] + '.jpg';
 }
 
 
@@ -110,7 +112,7 @@ function scrollBack() {
     var expandedImage = U.$('expandedImage');
 
     // get matching src and previous sibling
-    const srcMatch = imageArray.find(image => getSource(image) == expandedImage.src);
+    const srcMatch = imageArray.find(image => getSource(image) === expandedImage.src);
     var previousSrc = getSource(srcMatch.previousElementSibling);
     var previousAlt = getSource(srcMatch.previousElementSibling);
     expandedImage.src = previousSrc;
@@ -135,7 +137,7 @@ function sliderScroll() {
         var srcSplit = image.src.split("-bt")
         var imageSrc = srcSplit[0] + '.jpg';
 
-        if (imageSrc == U.$('expandedImage').src) {
+        if (imageSrc === U.$('expandedImage').src) {
             // get index # of image
             var sliderIndex = getIndex(image, bigSliderImages);
             var scrollLeft = 0;
@@ -161,7 +163,7 @@ function sliderScroll() {
         var imageSrc = srcSplit[0] + '.jpg';
 
         // get index # of image
-        if (imageSrc == U.$('expandedImage').src) {
+        if (imageSrc === U.$('expandedImage').src) {
             var sliderIndex = getIndex(image, smallSliderImages);
             var scrollLeft = 0;
 
@@ -245,16 +247,62 @@ function changeImageSlider() {
                 var smallSrc = imgSplit[0] + '.jpg';
 
                 // add border highlight for small thumbnail
-                if (imageSrc == smallSrc) {
+                if (imageSrc === smallSrc) {
                     smallSliderImages[i].classList.add('currentImage');
                 }
             }
             // add border highlight for larger thumbnail
             image.classList.add('currentImage');
+            sliderScroll();
         })
     })
 } // end of changeImageSlider() function
 
+function keebImgInput() {
+    'use strict';
+
+    var imgs = document.querySelectorAll('img');
+
+    imgs.forEach((img) => {
+        U.addEvent(img, 'keypress', function (event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                event.preventDefault();
+
+                // Trigger the button element with a click
+                img.click();
+            }
+        });
+    });
+} // end of keebInput() function
+
+function setInert() {
+    'use strict';
+
+    var inert = document.querySelectorAll('#skipnav, header, #gallery, footer');
+    console.log(inert);
+
+    inert.forEach((elem) => {
+        elem.toggleAttribute('inert');
+    })
+}
+
+function navFocus() {
+    'use strict';
+
+    var slider = document.querySelector('.sliderWrapper');
+    var children = slider.querySelectorAll('.sliderNav, .sliderImage')
+
+    children.forEach((child) => {
+        U.addEvent(child, 'focus', function () {
+            slider.style.opacity = '1';
+        })
+        U.addEvent(child, 'blur', function () {
+            slider.style.opacity = '';
+        })
+    })
+}
 
 // function called when window loads 
 // initial setup 
@@ -263,6 +311,8 @@ function init() {
 
     // assign event handlers to their events
     U.addEvent(window, 'load', openImagePopup);
+    U.addEvent(window, 'load', U.keebInput);
+    U.addEvent(window, 'load', keebImgInput);
     U.addEvent(U.$('blocker'), 'click', closeImagePopup);
     U.addEvent(U.$('navRight'), 'click', scrollForward);
     U.addEvent(U.$('navLeft'), 'click', scrollBack);
@@ -270,7 +320,6 @@ function init() {
     U.addEvent(window, 'load', changeImageSlider);
     U.addEvent(window, 'scroll', U.blurNav);
     U.addEvent(U.$('menu'), 'click', U.openMenu);
-    U.addEvent(U.$('galleryButton'), 'click', U.goToGallery);
 
 } // end of init() function
 

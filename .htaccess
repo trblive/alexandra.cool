@@ -1,0 +1,6 @@
+<Files ~ “^\.(htaccess|htpasswd)$”>
+    Deny from all
+</Files>
+
+ErrorDocument 404 https://www.alexandra.cool/404
+Order Deny,Allow

@@ -50,6 +50,28 @@ body {
 i {
     min-width: 0;
 }
+#skipnav {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+#skipnav:focus {
+    opacity: 1;
+}
+*:focus {
+    outline: 1px solid #FF7DBA;
+    box-shadow: 0 0 5px #FF7DBA;
+}
+a:focus:not(#skipnav) {
+    padding: 4px;
+    outline-offset: 0;
+    border-radius: 4px;
+}
 
 /*  ------------------
     1.0 – header
@@ -94,8 +116,8 @@ header ul li {
     border-radius: 30px;
     min-width: 0;
 }
-#galleryButton {
-    cursor: pointer;
+header ul li i {
+    margin-right: 10px;
 }
 #navContainer.display {
     max-height: 330px;
@@ -122,6 +144,7 @@ h1, h2, main h3 {
 }
 hgroup p {
     margin: 0;
+    font-size: 1.25em
 }
 
 /*  ------------------

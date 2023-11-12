@@ -9,6 +9,7 @@ function validateForm(e) {
 
     // Get the event object:
 	if (typeof e == 'undefined') e = window.event;
+    console.log(e);
 
     // Get form references:
 	var firstName = U.$('firstName');
@@ -16,7 +17,6 @@ function validateForm(e) {
 	var email = U.$('email');
 	var phone = U.$('phone');
     var message = U.$('message');
-    var attachment = U.$('attachment');
     var reply = document.getElementsByName('reply');
 
 
@@ -70,16 +70,6 @@ function validateForm(e) {
     } else {
         removeCorrectMessage('message');
         addErrorMessage('message', 'Please enter a short message (max 500 characters).');
-        error = true;
-    }
-
-    // validate the attachment file extension:
-    if (/^$|([a-zA-Z0-9\s_\\.\-\(\):])+(.doc|.docx|.pdf|.jpg|.jpeg|.png|.txt)$/i.test(attachment.value)) {
-        removeErrorMessage('upload');
-        addCorrectMessage('attachmentLabel', '✓');
-    } else {
-        removeCorrectMessage('attachmentLabel');
-        addErrorMessage('upload', 'Attachments must be a valid file type!');
         error = true;
     }
 
@@ -179,7 +169,7 @@ function init() {
 	// Watch for changes on the terms checkbox:
     U.addEvent(U.$('terms'), 'change', toggleSubmit);
 
-	// Enbable tooltips on the first name and phone number fields:
+	// Enable tooltips on upload field:
 	U.enableTooltips('uploadText');
 
     // display the file name for the attachment field:
@@ -188,14 +178,10 @@ function init() {
     // reset file upload:
     U.addEvent(U.$('resetFile'), 'click', resetFile);
 
-    // add nav background:
+    // utilities
     U.addEvent(window, 'scroll', U.blurNav);
-
-    // open menu:
     U.addEvent(U.$('menu'), 'click', U.openMenu);
-
-    // navigate to gallery
-    U.addEvent(U.$('galleryButton'), 'click', U.goToGallery);
+    U.addEvent(window, 'load', U.keebInput);
 
 } // End of init() function.
 

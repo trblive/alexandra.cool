@@ -117,13 +117,25 @@ var U = {
 
     }, // end of openMenu() function
 
-
-    // function called when user clicks nav menu item
-    // function redirects webpage to url
-    goToGallery: function() {
+    // function called when window loads
+    // function allows 'submit' button to be activated with keyboard enter
+    keebInput: function () {
         'use strict';
 
-        window.location.assign("https://alexandra.cool/gallery/");
-    } // end of goToGallery() function
+        var inputs = document.querySelectorAll('input');
+
+        inputs.forEach((input) => {
+            U.addEvent(input, 'keypress', function (event) {
+                // If the user presses the "Enter" key on the keyboard
+                if (event.key === "Enter") {
+                    // Cancel the default action, if needed
+                    event.preventDefault();
+
+                    // Trigger the button element with a click
+                    input.click();
+                }
+            });
+        });
+    } // end of keebInput() function
 
 }; // End of U declaration.

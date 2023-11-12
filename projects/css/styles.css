@@ -16,7 +16,7 @@
     0.0 – general
     ------------------ */
 #wrapper {
-    background-color: #AEB1FC;
+    background-color: #FEFDEC;
 }
 
 /*  ------------------
@@ -36,7 +36,9 @@ section {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin: 0 80px 80px 80px;
+    padding: 80px;
+    background-color: #CCD2FF;
+    border-top: 2px solid black;
 }
 .tile {
     display: inline-flex;
@@ -49,7 +51,7 @@ section {
     transition: all 0.5s ease;
     overflow: hidden;
     height: 550px;
-    background-color: #CCD2FF;
+    background-color: #F0F1FF;
 }
 .tile h2 {
     margin: 0 60px 0 0;
@@ -72,7 +74,7 @@ section {
 .tile:hover {
     transform: translateY(-4px);
     box-shadow: 7px 7px 50px 0 black;
-    background-color: #BFC6FF;
+    background-color: #EBEDFF;
 }
 .tile:hover figure {
     transform: translateY(16px);

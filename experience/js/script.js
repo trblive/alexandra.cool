@@ -27,9 +27,41 @@ function accordion() {
             }
 
         });
+        U.addEvent(acc[i], 'click', toggleContent);
     }
 } // end of accordion() function
 
+// function called in accordion() function
+// function allows keyboard accessibility for accordion
+function toggleContent() {
+    'use strict';
+
+    var controls = document.querySelectorAll('dt');
+
+    controls.forEach((control) => {
+
+        U.addEvent(control, 'click', function (e){
+
+            var type = e.type,
+                button = this,
+                content = this.nextElementSibling;
+
+            // Return if key pressed was not Space Bar or Enter
+            if (type === 'keydown' && (e.keyCode !== 13 && e.keyCode !== 32)) {
+                return true;
+            }
+            e.preventDefault();
+
+            if (content.getAttribute('aria-hidden') === 'true') {
+                content.setAttribute('aria-hidden', 'false');
+                button.setAttribute('aria-expanded', 'true');
+            } else {
+                content.setAttribute('aria-hidden', 'true');
+                button.setAttribute('aria-expanded', 'false');
+            }
+        })
+    })
+} // end of toggleContent() function
 
 // function called when user submits password 
 // function validates password and triggers display of page content
@@ -40,7 +72,7 @@ function validatePassword() {
     var wrapper = document.getElementById('wrapper');
     var popup = document.getElementById('popup');
 
-    if (password.value == 'rose3307') {
+    if (password.value === 'rose3307') {
         wrapper.classList.add('unlocked');
         wrapper.classList.remove('locked');
     } else {
@@ -51,7 +83,6 @@ function validatePassword() {
     }
 }
 
-
 // function called when window loads 
 // initial setup 
 function init() {
@@ -60,9 +91,10 @@ function init() {
     // assign event handlers to their events
     U.addEvent(window, 'scroll', U.blurNav);
     U.addEvent(window, 'load', accordion);
+    U.addEvent(window, 'load', U.keebInput);
     U.addEvent(U.$('submit'), 'click', validatePassword);
     U.addEvent(U.$('menu'), 'click', U.openMenu);
-    U.addEvent(U.$('galleryButton'), 'click', U.goToGallery);
+    U.addEvent(U.$('menu'), 'click', U.openMenu);
 
 } // end of init() function
 

@@ -45,10 +45,10 @@ function init() {
 
     // assign event handlers to their events
     U.addEvent(U.$('button'), 'click', animation);
+    U.addEvent(U.$('skipnav'), 'click', animation);
     U.addEvent(window, 'scroll', reveal);
     U.addEvent(window, 'scroll', U.blurNav);
     U.addEvent(U.$('menu'), 'click', U.openMenu);
-    U.addEvent(U.$('galleryButton'), 'click', U.goToGallery);
 
 } // end of init() function
 

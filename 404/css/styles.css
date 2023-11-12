@@ -1,0 +1,86 @@
+/*
+        Table of Contents
+        ------------------
+        :: 0.0 – general
+        ------------------
+        :: 1.0 – header
+        ------------------
+        :: 2.0 – main
+            // 2.1 – heading
+            // 2.2 – home button
+            // 2.3 – aura
+        ------------------
+        :: 3.0 – footer
+        ------------------
+*/
+
+/*  ------------------
+    0.0 – general
+    ------------------ */
+#wrapper {
+    height: 100vh;
+}
+main {
+    text-align: center;
+}
+
+/*  ------------------
+    1.0 – header
+    ------------------ */
+
+/*  ------------------
+    2.0 – main
+    ------------------
+
+    // 2.1 – heading
+    ------------------ */
+hgroup {
+    position: relative;
+    z-index: 2;
+}
+
+/*  ------------------
+    // 2.2 – home button
+    ------------------ */
+#home-btn {
+    position: relative;
+    z-index: 2;
+    background-color: #EAFFE1;
+    padding: 12px 24px;
+    border: 1px solid #1E1E1C;
+    border-radius: 50px;
+    display: inline-block;
+}
+#home-btn:hover {
+    background-color: #FFE8E4;
+}
+
+/*  ------------------
+    // 2.3 – aura
+    ------------------ */
+#aura-background {
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0.3;
+}
+#canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.5;
+}
+/*  ------------------
+    3.0 – footer
+    ------------------ */
+footer {
+    position: absolute;
+    bottom: 2px;
+    z-index: 2;
+}

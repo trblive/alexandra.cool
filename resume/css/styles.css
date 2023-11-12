@@ -1,0 +1,334 @@
+/*
+        Table of Contents
+        ------------------
+        :: 0.0 – general
+        ------------------
+        :: 1.0 – header
+        ------------------
+        :: 2.0 – main
+            // 2.1 – heading
+            // 2.2 – home button
+            // 2.3 – aura
+        ------------------
+        :: 3.0 – aside
+        ------------------
+        :: 4.0 – media queries
+        ------------------
+*/
+
+/*  ------------------
+    0.0 – general
+    ------------------ */
+* {
+    font-family: Source-Code, sans-serif;
+}
+#wrapper {
+    padding: 20px;
+    margin: 0 auto;
+    border: 0;
+    line-height: 1.15;
+}
+h1, h2, h3 {
+    font-size: revert;
+    padding: 0;
+    margin: revert;
+}
+.h-resume a, .h-resume a:hover, .h-resume a:active {
+    outline: none;
+    color: inherit;
+}
+ul li {
+    padding: 2px 0;
+}
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+/*  ------------------
+    1.0 – header
+    ------------------ */
+header {
+    padding: 0;
+    display: block;
+    position: static;
+}
+header h1 {
+    font-size: 2.25em;
+    color: #555;
+    font-weight: 600;
+}
+/*  ------------------
+    2.0 – main
+    ------------------ */
+dl {
+    margin-bottom: 45px;
+}
+dt {
+    line-height: 2;
+    font-size: 1.25em;
+    font-weight: 600;
+    margin: 20px 0;
+    border-bottom: 1px solid #555;
+}
+dd {
+    padding-left: 20px;
+    margin-left: 0;
+    font-weight: 500;
+}
+dd ul, dd p {
+    font-size: 14px;
+}
+dd ul {
+    padding-left: 0;
+    list-style: none;
+}
+dd.skills ul {
+    padding: 0;
+    list-style-position: inside;
+    list-style-type: square;
+    margin: 10px 0;
+}
+.p-experience,.p-education {
+    padding: 16px 0;
+    border-bottom: solid 1px silver
+}
+.p-experience:first-child,.p-education:first-child {
+    padding-top: 0;
+}
+.p-experience:last-child,.p-education:last-child {
+    border-bottom: none;
+    padding-bottom: 0
+}
+.experience ul ul {
+    padding-left: 10px !important;
+    list-style-position: inside !important;
+    list-style-type: square !important;
+}
+.p-experience .p-name, .p-experience .p-org, .p-education .specialty {
+    font-weight: 600;
+    margin: 0;
+}
+.experience .p-experience .p-name {
+    font-style: italic;
+}
+.duration {
+    float: right;
+}
+.dt-start:before {
+    content: "(";
+}
+.dt-end:before {
+    content: " - ";
+}
+.dt-end:after {
+    content: ")";
+}
+.line1 {
+    padding-bottom: 10px
+}
+.portfolio .line2 {
+    padding-bottom: 5px
+}
+.portfolio .line2 span {
+    font-size: 11px;
+    color: gray;
+    font-weight: 600
+}
+.p-skill:hover {
+    background-color: rgba(0,0,0,0.05)
+}
+.education .line2 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+/*  ------------------
+    3.0 – aside
+    ------------------ */
+.p-contact.h-card {
+    margin: 16px 40px;
+    padding: 15px 30px;
+    display: block;
+    border-top: 15px solid #E4C8E3;
+    background: #EBD6EA;
+    font-weight: 400;
+    line-height: 2;
+    box-shadow: 0 5px 10px #aaa;
+}
+.p-contact.h-card p {
+    margin: 0;
+    font-weight: 600;
+}
+.p-contact.h-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.p-contact.h-card ul li .fa {
+    width: 20px;
+    text-align: center;
+}
+
+/*  ------------------
+    4.0 – media queries
+    ------------------ */
+@media screen {
+    .resume a, .resume a:hover, .resume a:active {
+        text-decoration: underline;
+    }
+}
+@media (max-width: 425px) {
+    #wrapper {
+        width: 100% !important;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+@media (min-width: 768px) {
+    main {
+        display: flex;
+        flex-flow: row-reverse nowrap;
+        justify-content: space-between;
+    }
+    aside {
+        width: 35%;
+        height: fit-content;
+    }
+    .p-contact.h-card {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 20px 30px;
+    }
+    section {
+        width: 60%;
+    }
+}
+@media (min-width: 800px) {
+    #wrapper {
+        width: 800px;
+    }
+}
+@media (min-width: 1000px) {
+    #wrapper {
+        width: 1000px;
+    }
+}
+@media (max-width: 1000px) {
+    #wrapper {
+        width: 100% !important;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .line1 {
+        padding-bottom:15px
+    }
+}
+
+@media print {
+    @page {
+        size: A4 portrait;
+    }
+    html {
+        width: 100vw !important;
+        height: auto;
+    }
+    body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        height: auto;
+    }
+    #wrapper {
+        padding: 25px;
+        height: 100% !important;
+        width: 100%;
+        position: relative;
+        text-rendering: optimizeLegibility !important;
+        -webkit-font-smoothing: antialiased !important;
+        box-sizing: border-box;
+    }
+    body:after {
+        content: "https://alexandra.cool/resume/";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 10px;
+        color: grey;
+        font-weight: 600;
+    }
+    main {
+        display: block;
+    }
+    .no-print {
+        display: none !important;
+    }
+    header h1 {
+        margin: 0 0 10px 0 !important;
+    }
+    aside, .resume {
+        width: 100%;
+        padding-top: 20px !important;
+    }
+    .p-contact.h-card {
+        margin: 0 0 -15px 0;
+        padding: 0;
+        background: none;
+        border: none;
+        font-size: 10px;
+        box-shadow: none;
+    }
+    .p-contact.h-card > *, .p-contact.h-card ul li > *, .p-contact.h-card ul li > * > *  {
+        color: #1E1E1C;
+    }
+    .p-contact.h-card ul {
+        text-align: center;
+    }
+    .p-contact.h-card ul li {
+        display: inline;
+    }
+    .resume dl {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+    .resume dl dt, .resume dl dd {
+        margin-right: 10px;
+    }
+    .resume dl dt {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 18px;
+    }
+    .resume dd ul, .resume dd p{
+        font-size: 12px;
+    }
+    .skills h3 {
+        font-size: 15px;
+        margin: 8px 0;
+    }
+    .skills,
+    .skills-dt,
+    .education-dt,
+    .education {
+        order: 2;
+    }
+    .p-education .specialty {
+        margin: 0;
+    }
+    abbr {
+        text-decoration: none !important;
+    }
+    .skills abbr:after {
+        display: block;
+        content: "Keywords: "attr(title);
+        padding: 5px 0 0 0;
+    }
+    .skills abbr:after {
+        font-weight: 600;
+        font-size: 11px;
+        color: gray;
+    }
+}
