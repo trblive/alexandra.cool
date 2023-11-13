@@ -4,7 +4,7 @@
 
 
 // function is called when button is clicked
-// function triggers animation to display page content 
+// function triggers animation to display page content
 function animation() {
     'use strict';
     

@@ -9,12 +9,13 @@
     $title = 'Contact';
     $styleTemplate = '../css/template.css';
     $heading = 'Contact';
-    $subtext = "(This form doesn't go anywhere yet – I can't get the PHP to work. Send a message on LinkedIn <a class=\"link\" href=\"https://www.linkedin.com/in/alexandra-adams-237682236/\">here</a>)";
+    $subtext = "(It's working!! Please say hello ☺️)";
     include $_SERVER['DOCUMENT_ROOT'].'/template/template.php';
     echo $head;
     echo $wrapper;
     echo $header;
     echo $main;
+    include_once 'content/contact.php';
     include 'content/main.html.php';
     echo $footer;
     echo $scripts;

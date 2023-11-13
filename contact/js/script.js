@@ -1,6 +1,31 @@
 
-// 31/05/2021 
-// script.js 1.0 – completed draft
+// 13/11/2021
+// script.js 2.0
+
+// function sets 'correct' class on form input fields
+function setCorrect(id) {
+	'use strict';
+
+	var elem = U.$(id);
+
+	if (elem.classList.contains('error')) {
+		elem.classList.remove('error');
+	}
+	elem.classList.add('correct');
+}
+
+// function sets 'error' class on form input fields
+function setError(id) {
+	'use strict';
+
+	var elem = U.$(id);
+
+	if (elem.classList.contains('correct')) {
+		elem.classList.remove('correct');
+	}
+	elem.classList.add('error');
+}
+
 
 // Function called when the form is submitted.
 // Function validates the form data.
@@ -16,6 +41,7 @@ function validateForm(e) {
 	var lastName = U.$('lastName');
 	var email = U.$('email');
 	var phone = U.$('phone');
+	var subject = U.$('subject');
     var message = U.$('message');
     var reply = document.getElementsByName('reply');
 
@@ -27,9 +53,11 @@ function validateForm(e) {
 	if (/^[A-Z \.\-']{2,20}$/i.test(firstName.value)) {
 		removeErrorMessage('firstName');
 		addCorrectMessage('firstName', '✓');
+		setCorrect('firstName');
 	} else {
 		removeCorrectMessage('firstName');
 		addErrorMessage('firstName', 'Please enter your full first name (min. 2 characters).');
+		setError('firstName');
 		error = true;
 	}
 
@@ -37,9 +65,11 @@ function validateForm(e) {
 	if (/^[A-Z \.\-']{2,20}$/i.test(lastName.value)) {
 		removeErrorMessage('lastName');
 		addCorrectMessage('lastName', '✓');
+		setCorrect('lastName');
 	} else {
 		removeCorrectMessage('lastName');
 		addErrorMessage('lastName', 'Please enter your surname (min. 2 characters).');
+		setError('lastName');
 		error = true;
 	}
 	
@@ -47,9 +77,11 @@ function validateForm(e) {
 	if (/^[\w.-]+@[\w.-]+\.[A-Za-z]{2,6}$/.test(email.value)) {
 		removeErrorMessage('email');
 		addCorrectMessage('email', '✓');
+		setCorrect('email');
 	} else {
 		removeCorrectMessage('email');
 		addErrorMessage('email', 'Please enter your email address.');
+		setError('email');
 		error = true;
 	}
 	
@@ -57,9 +89,23 @@ function validateForm(e) {
 	if (/\d{3}[ \-\.]?\d{3}[ \-\.]?\d{4}/.test(phone.value)) {
 		removeErrorMessage('phone');
 		addCorrectMessage('phone', '✓');
+		setCorrect('phone');
 	} else {
 		removeCorrectMessage('phone');
 		addErrorMessage('phone', 'Please enter your phone number.');
+		setError('phone');
+		error = true;
+	}
+
+	// validate the subject:
+	if (/.{1,500}/i.test(subject.value)) {
+		removeErrorMessage('subject');
+		addCorrectMessage('subject', '✓');
+		setCorrect('subject');
+	} else {
+		removeCorrectMessage('subject');
+		addErrorMessage('subject', 'Please give a subject for your message (max. 50 characters).');
+		setError('subject');
 		error = true;
 	}
 	
@@ -67,9 +113,11 @@ function validateForm(e) {
     if (/.{1,500}/i.test(message.value)) {
         removeErrorMessage('message');
         addCorrectMessage('message', '✓');
+		setCorrect('message');
     } else {
         removeCorrectMessage('message');
         addErrorMessage('message', 'Please enter a short message (max 500 characters).');
+		setError('message');
         error = true;
     }
 
@@ -80,13 +128,15 @@ function validateForm(e) {
         }
     }
     // validate the reply preference:
-    if (/(phoneContact|emailContact|SMS)/i.test(reply.value)) {
+    if (/(phone|email|SMS)/i.test(reply.value)) {
         removeErrorMessage('radios');
         addCorrectMessage('radios', '✓');
+		setCorrect('radios');
     } else {
         removeCorrectMessage('radios');
         addErrorMessage('radios', 'Please select a preferred method of contact.');
-        error = true;
+		setError('radios');
+		error = true;
     }
 
     // If an error occurred, prevent the default behavior:
@@ -104,39 +154,6 @@ function validateForm(e) {
 } // End of validateForm() function.
 
 
-// function called when attachment file is uploaded
-// function displays name of uploaded file
-function showFileName() {
-    'use strict';
-
-    var attachment = U.$('attachment');
-    var fileName = attachment.files[0].name;
-    var attachmentText = U.$('attachmentText');
-
-    if (/./i.test(fileName)) {
-        if (fileName.length > 30) {
-            attachmentText.innerText = fileName.slice(0, 30) + '...';
-        } else {
-            attachmentText.innerText = fileName;
-        }
-    } else {
-        attachmentText.innerText = 'No file chosen.';
-    }
-    
-} // end of showFileName() function
-
-
-//function called when "Reset" button is clicked
-// function resets uploaded file
-function resetFile() {
-    'use strict';
-
-    U.$('attachment').value = null;
-    U.$('attachmentText').innerText = 'No file chosen.';
-
-} // end of resetFile() function
-
-
 // Function called when the terms checkbox changes.
 // Function enables and disables the submit button.
 function toggleSubmit() {
@@ -146,14 +163,65 @@ function toggleSubmit() {
 	var submit = U.$('submit');
 	
 	// Toggle its disabled property:
-	if (U.$('terms').checked) {
-		submit.disabled = false;
-	} else {
-		submit.disabled = true;
-	}
+	submit.disabled = !U.$('terms').checked;
 	
 } // End of toggleSubmit() function.
 
+
+function preview() {
+	'use strict';
+
+	// get form references
+	var firstName = U.$('firstName').value;
+	var lastName = U.$('lastName').value;
+	var email = U.$('email').value;
+	var phone = U.$('phone').value;
+	var subject = U.$('subject').value;
+	var message = U.$('message').value;
+	var replies = document.getElementsByName('reply');
+
+	// get the reply preference
+	for (var i = 0; i < replies.length; i++) {
+		if (replies[i].checked) {
+			var reply = replies[i].value;
+		}
+	}
+
+
+	var templates = {
+		given_name: `<span class="p-given-name">${firstName} </span>`,
+		family_name: `<span class="p-family-name">${lastName}</span>`,
+		email: `<a class="u-email" href="mailto:${email}">${email}</a>`,
+		tel: `<p class="p-tel">${phone}</p>`,
+		subject: `<p class="subject">Subject: <span>${subject}</span></p>`,
+		message: `<p class="message">Message: <br/><span>${message}</span></p>`,
+		reply: `<p class="reply">Your preferred method of contact: ${reply}</p>`,
+	};
+
+	var output = '<div class="h-card"><h2>Your details:</h2>';
+
+	if(firstName) {
+		output += '<p class="p-name">' + templates.given_name + templates.family_name + '</p>';
+	}
+	if(email) {
+		output += templates.email;
+	}
+	if(phone) {
+		output += templates.tel;
+	}
+	if(subject) {
+		output += templates.subject;
+	}
+	if(message) {
+		output += templates.message;
+	}
+	if(reply) {
+		output += templates.reply;
+	}
+	output += '</div>'
+
+	return output;
+}
 
 // Function is called when window loads:
 // Initial setup:
@@ -169,14 +237,16 @@ function init() {
 	// Watch for changes on the terms checkbox:
     U.addEvent(U.$('terms'), 'change', toggleSubmit);
 
-	// Enable tooltips on upload field:
-	U.enableTooltips('uploadText');
-
-    // display the file name for the attachment field:
-    U.addEvent(U.$('attachment'), 'change', showFileName);
-
-    // reset file upload:
-    U.addEvent(U.$('resetFile'), 'click', resetFile);
+	// watch for changes in input and textarea fields
+	const fields = document.querySelectorAll('input, textarea');
+	fields.forEach((field) => {
+		U.addEvent(field, 'keyup', function () {
+			U.$('hcard-section').innerHTML = preview();
+		})
+	})
+	U.addEvent(U.$('radios'), 'click', function () {
+		U.$('hcard-section').innerHTML = preview();
+	})
 
     // utilities
     U.addEvent(window, 'scroll', U.blurNav);

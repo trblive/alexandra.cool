@@ -22,8 +22,15 @@
 /*  ------------------
     0.0 – general
     ------------------ */
+:root {
+    --error: #c74436;
+    --correct: #67a185;
+    --beige: #FEFDEC;
+    --black: #1E1E1C;
+    --pink: #FF7DBA;
+}
 #wrapper {
-    background-color: #FEFDEC;
+    background-color: var(--beige);
 }
 p {
     margin: 16px;
@@ -54,32 +61,38 @@ header ul li.blur {
 hgroup {
     border-bottom: 2px solid #1E1E1C;
 }
-.link {
-    color: rgba(252, 74, 157, 1);
-}
-.link:hover {
-    text-decoration: underline;
-}
 
 /*  ------------------
     // 2.2 – form setup
     ------------------ */
-form {
+#form-content {
+    background-color: #FF7DBA;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+#form-content > * {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    background-color: #FF7DBA;
-}
-fieldset {
-    background-color: white;
+    width: 50%;
     border: 2px solid #1E1E1C;
     border-top: 0;
     border-bottom: 0;
+    background-color: white;
+    margin: 0;
+}
+form {
+    padding: 36px 40px;
+}
+fieldset {
     display: flex;
     flex-flow: column nowrap;
-    width: 50%;
-    padding: 0 40px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 label {
     padding: 16px;
@@ -93,12 +106,6 @@ input, textarea {
     min-width: 0;
     border: 1px solid #1E1E1C;
     border-radius: 8px;
-}
-textarea {
-    height: 100px;
-}
-#reason, #contact {
-    padding-bottom: 16px;
 }
 #attachmentLabel, #contact label, #submitForm label {
     display: flex;
@@ -114,7 +121,6 @@ textarea {
 #details {
     display: flex;
     flex-flow: row wrap;
-    padding-top: 20px;
 }
 #details label {
     width: 50%;
@@ -123,74 +129,14 @@ textarea {
 /*  ------------------
     // 2.2.2 – reason
     ------------------ */
-#attachmentLabel {
-    display: inline-flex;
-    width: fit-content;
-    border: 1px solid #1E1E1C;
-    border-radius: 8px;
-}
-#attachmentLabel:has(input[type="file"]:focus) {
-    outline: 1px solid #FF7DBA;
-    box-shadow: 0 0 5px #FF7DBA;
-}
-#upload {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    margin: 0 16px 8px 16px;
-}
-#uploadField {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    gap: 16px;
-}
-#resetFile {
-    background-color: #ffc347;
-    border: 2px solid #E8AC33;
-}
-input[type="file"] {
-    width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: none;
-}
-#uploadText {
-    position: relative;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
-#uploadInfo {
-    cursor: pointer;
-}
-#toolTip {
-    opacity: 0;
-    position: absolute;
-    right: -260px;
-    width: 180px;
-    top: -16px;
-    background-color: #FEFDEC;
-    padding: 16px;
-    border: 2px solid #1E1E1C;
-    border-radius: 16px;
-    transition: 0.1s linear;
-}
-#uploadInfo:hover + #toolTip {
-    animation: shadow 0.1s forwards;
-    animation-delay: 0.1s;
+textarea {
+    height: 100px;
 }
 
 /*  ------------------
     // 2.2.3 – method of contact
     ------------------ */
-#contact {
+#radios {
     position: relative;
 }
 #contact label {
@@ -242,15 +188,15 @@ input[type="radio"]:checked:hover::after {
 }
 input[type="checkbox"] {
     width: auto;
-    margin-left: 0;
+    margin: 0;
     outline-offset: 2px;
 }
 #buttons {
-    padding-bottom: 36px;
     display: flex;
     gap: 16px;
     flex-flow: row wrap;
     justify-content: flex-end;
+    margin-top: 24px;
 }
 #buttons input {
     width: 120px;
@@ -263,6 +209,10 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 #submit {
+    border: revert;
+    color: revert;
+}
+#submit:not(:disabled) {
     background-color: #FF7DBA;
     color: white;
     border: 2px solid #fc49ad;
@@ -276,57 +226,112 @@ input[type="checkbox"] {
 /*  ------------------
     // 2.3 – validation
     ------------------ */
-.error, .correct {
-    font-size: 0.9em;
-    color: #fc49ad;
+.status-msg {
+    padding: 36px 40px 0;
 }
-#details .correct, #messageCorrect {
+.status-msg div {
+    width: fit-content;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0;
+    padding: 20px;
+    border-width: 1px;
+    border-style: dashed;
+    border-radius: 8px;
+}
+.status-msg p {
+    font-weight: 700;
+    margin: 8px 8px 12px;
+}
+.status-msg ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.status-msg li {
+    margin: 8px;
+}
+.error, .correct, .success {
+    font-size: 0.9em;
+    min-width: 0;
+}
+span.error {
+    color: var(--error);
+}
+input.error, textarea.error {
+    border: 1px solid var(--error);
+}
+input.error:focus, textarea.error:focus {
+    box-shadow: 0 0 5px var(--error);
+    outline: none;
+}
+.status-msg.error div {
+    border-color: var(--error);
+}
+.status-msg.error p, .status-msg.error li {
+    color: var(--error);
+}
+span.correct, .success {
+    color: var(--correct);
+}
+input.correct, textarea.correct {
+    border: 1px solid var(--correct);
+}
+input.correct:focus, textarea.correct:focus {
+    box-shadow: 0 0 5px var(--correct);
+    outline: none;
+}
+.status-msg.success div {
+    border-color: var(--correct);
+    color: var(--correct);
+    padding: 28px;
+}
+#details label input.correct + span, #messageCorrect {
     position: absolute;
     right: 16px;
     top: 16px;
 }
-#uploadError, #attachmentLabelCorrect, #radiosError {
-    padding: 0 16px;
-}
 #radiosError {
+    padding: 0 16px;
     margin-top: 10px;
 }
 #radiosCorrect {
     position: absolute;
     top: 16px;
-    right: 40px;
+    right: 56px;
 }
 
 /*  ------------------
     3.0 – hcard
     ------------------ */
-#hcard-example {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #AEB1FC;
-    border-top: 2px solid #1E1E1C;;
-    padding: 30px 0;
+#hcard-section {
+    padding: 0 40px 36px;
 }
-#hcard-example article {
-    background-color: white;
-    border: 2px solid #1E1E1C;
-    border-radius: 16px;
-    width: 30%;
-    padding: 20px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-#hcard-example h2 {
-    font-size: 1.5em;
+#hcard-section h2 {
+    font-size: 1.2em;
     text-align: center;
+    margin: 16px;
 }
-.adr {
-    display: flex;
-    flex-flow: column nowrap;
-    list-style: none;
+.h-card {
+    background-color: var(--beige);
+    border: 1px solid var(--black);
+    border-radius: 16px;
+    padding: 16px;
+    margin: 16px;
+    max-width: 70%;
+}
+.h-card .u-email {
+    margin: 16px;
+    color: rgba(252, 74, 157, 1);
+    text-decoration: underline;
+}
+.h-card .subject span {
+    font-style: italic;
+}
+.h-card .message span {
+    display: inline-block;
+    padding: 16px 24px;
+    font-style: italic;
 }
 
 /*  ------------------
