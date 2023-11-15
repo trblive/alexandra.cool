@@ -15,8 +15,13 @@
 /*  ------------------
     0.0 – general
     ------------------ */
+:root {
+    --black: #1E1E1C;
+    --purple: #CCD2FF;
+    --beige: #FEFDEC;
+}
 #wrapper {
-    background-color: #FEFDEC;
+    background-color: var(--purple);
 }
 
 /*  ------------------
@@ -34,59 +39,67 @@ header ul li.blur {
     ------------------ */
 section {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    flex-direction: column;
     padding: 80px;
-    background-color: #CCD2FF;
-    border-top: 2px solid black;
+}
+.row {
+    display: flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    gap: 40px;
 }
 .tile {
     display: inline-flex;
     flex-flow: column nowrap;
-    align-items: flex-end;
-    padding: 40px 0 0 60px;
-    border: 2px solid black;
+    align-items: center;
+    border: 2px solid var(--black);
     border-radius: 16px;
-    box-shadow: 7px 7px black;
+    box-shadow: 7px 7px var(--black);
     transition: all 0.5s ease;
     overflow: hidden;
-    height: 550px;
-    background-color: #F0F1FF;
+    background-color: white;
+    width: 33%;
+}
+.tile .text {
+    width: 100%;
+    padding: 40px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    z-index: 1;
 }
 .tile h2 {
-    margin: 0 60px 0 0;
     font-family: Source-Code, sans-serif;
     font-size: 2em;
+    text-align: center;
 }
 .tile p {
-    margin: 0 60px 0 0;
     font-size: 1em;
     letter-spacing: 4px;
+    text-align: center;
     text-transform: uppercase;
 }
 .tile figure {
-    margin: 40px 0 0 0;
+    margin: 0;
     width: 100%;
     overflow: hidden;
-    border-radius: 16px 0 16px 0;
     transition: all 0.5s ease;
+}
+.tile img {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 .tile:hover {
     transform: translateY(-4px);
-    box-shadow: 7px 7px 50px 0 black;
-    background-color: #EBEDFF;
+    box-shadow: 7px 7px 50px 0 var(--black);
 }
 .tile:hover figure {
     transform: translateY(16px);
 }
-#marketplace {
-    width: 55%;
-}
-#progress {
-    width: 35%;
-}
-img {
-    height: 100%;
+.blog {
+    width: 50%;
 }
 
 /*  ------------------
@@ -97,7 +110,7 @@ img {
         justify-content: center;
         gap: 50px;
     }
-    #marketplace, #progress {
+    .marketplace, #progress {
         width: 70%;
     }
 }
@@ -121,7 +134,7 @@ img {
     section {
         margin: 0 0 80px 0;
     }
-    #marketplace, #progress {
+    .marketplace, #progress {
         width: 80%;
     }
     .tile p, .tile h2 {

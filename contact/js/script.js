@@ -168,7 +168,7 @@ function toggleSubmit() {
 } // End of toggleSubmit() function.
 
 
-function preview() {
+function preview(e) {
 	'use strict';
 
 	// get form references
@@ -187,40 +187,51 @@ function preview() {
 		}
 	}
 
+	// get output references
+	var previewSubject = U.$('preview-subject');
+	var headerName = U.$('header-name');
+	var fullName = U.$('full-name');
+	var previewName = U.$('preview-name');
+	var previewEmail = U.$('preview-email');
+	var previewPhone = U.$('preview-tel');
+	var previewReply = U.$('preview-reply');
+	var previewMessage = U.$('preview-message');
 
+	// set template object
 	var templates = {
+		full_name: `${firstName} ${lastName}`,
 		given_name: `<span class="p-given-name">${firstName} </span>`,
 		family_name: `<span class="p-family-name">${lastName}</span>`,
 		email: `<a class="u-email" href="mailto:${email}">${email}</a>`,
-		tel: `<p class="p-tel">${phone}</p>`,
-		subject: `<p class="subject">Subject: <span>${subject}</span></p>`,
-		message: `<p class="message">Message: <br/><span>${message}</span></p>`,
-		reply: `<p class="reply">Your preferred method of contact: ${reply}</p>`,
+		tel: `<span class="p-tel">${phone}</span>`,
+		subject: `${subject}`,
+		message: `${message}`,
+		reply: `${reply}`,
 	};
 
-	var output = '<div class="h-card"><h2>Your details:</h2>';
-
-	if(firstName) {
-		output += '<p class="p-name">' + templates.given_name + templates.family_name + '</p>';
+	if (subject) {
+		previewSubject.innerHTML = templates.subject;
 	}
-	if(email) {
-		output += templates.email;
+	if (firstName) {
+		headerName.innerHTML = templates.full_name;
+		fullName.innerHTML = templates.full_name;
+		previewName.innerHTML = templates.given_name + templates.family_name;
 	}
-	if(phone) {
-		output += templates.tel;
+	if (email) {
+		previewEmail.innerHTML = templates.email;
 	}
-	if(subject) {
-		output += templates.subject;
+	if (phone) {
+		previewPhone.innerHTML = templates.tel;
 	}
-	if(message) {
-		output += templates.message;
+	if (reply) {
+		previewReply.innerHTML = templates.reply;
 	}
-	if(reply) {
-		output += templates.reply;
+	if (message) {
+		previewMessage.innerHTML = templates.message;
 	}
-	output += '</div>'
-
-	return output;
+	if(e) {
+		U.$('hcard-section').style.display = 'flex';
+	}
 }
 
 // Function is called when window loads:
@@ -240,13 +251,9 @@ function init() {
 	// watch for changes in input and textarea fields
 	const fields = document.querySelectorAll('input, textarea');
 	fields.forEach((field) => {
-		U.addEvent(field, 'keyup', function () {
-			U.$('hcard-section').innerHTML = preview();
-		})
+		U.addEvent(field, 'keyup', preview);
 	})
-	U.addEvent(U.$('radios'), 'click', function () {
-		U.$('hcard-section').innerHTML = preview();
-	})
+	U.addEvent(U.$('radios'), 'click', preview);
 
     // utilities
     U.addEvent(window, 'scroll', U.blurNav);

@@ -12,7 +12,9 @@
         ------------------
         :: 3.0 – aside
         ------------------
-        :: 4.0 – media queries
+        :: 4.0 – footer
+        ------------------
+        :: 5.0 – media queries
         ------------------
 */
 
@@ -170,9 +172,16 @@ dd.skills ul {
     width: 20px;
     text-align: center;
 }
+/*  ------------------
+    4.0 – footer
+    ------------------ */
+footer {
+    background-color: white;
+    border-top: 1px solid #1E1E1C;
+}
 
 /*  ------------------
-    4.0 – media queries
+    5.0 – media queries
     ------------------ */
 @media screen {
     .resume a, .resume a:hover, .resume a:active {

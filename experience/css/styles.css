@@ -36,10 +36,11 @@
 }
 h2 {
     padding: 0 0 20px 0;
+    font-size: 2.5em;
 }
-main h3 {
+h3 {
     font-size: 1.5em;
-    padding: 0 0 20px 0;
+    margin: 0;
 }
 p {
     font-size: 1.25em;
@@ -86,9 +87,8 @@ header ul li.blur {
     transform: translate(-50%, -50%);
     z-index: 1;
 }
-p span {
-    color: #fc49ad;
-    font-weight: 600;
+#popup p:has(code) {
+    line-height: 1.6;
 }
 #passwordInput {
     display: flex;
@@ -145,6 +145,10 @@ dt a {
     border: 2px solid #1E1E1C;
     transition: 0.4s;
     cursor: pointer;
+}
+dt a:focus {
+    padding: 20px 30px !important;
+    border-radius: 0 !important;
 }
 dt p, dt i {
     text-align: center;

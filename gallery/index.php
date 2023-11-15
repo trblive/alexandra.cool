@@ -1,5 +1,5 @@
 <?php
-    $title = 'Fun';
+    $title = 'Kitties';
     $styleTemplate = '../css/template.css';
     $heading = 'Image gallery';
     $subtext = 'A gallery of my cats, that I just made for fun.';

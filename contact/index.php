@@ -9,7 +9,7 @@
     $title = 'Contact';
     $styleTemplate = '../css/template.css';
     $heading = 'Contact';
-    $subtext = "(It's working!! Please say hello ☺️)";
+    $subtext = "(It's working!! Please say hello <i class=\"fa-regular fa-face-smile-beam\"></i>)";
     include $_SERVER['DOCUMENT_ROOT'].'/template/template.php';
     echo $head;
     echo $wrapper;

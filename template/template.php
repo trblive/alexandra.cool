@@ -68,22 +68,21 @@
     $footer = "
         </main>
         <footer>
-        <ul>
-            <li><h3>Other things</h3></li>
-            <li><a href=\"https://alexandra.cool/experience/\">Work history</a></li>
-            <li><a href=\"https://alexandra.cool/projects/\">Past projects</a></li>
-            <li><a href=\"https://alexandra.cool/resume/\" target=\"_blank\">Resume</a></li>
-        </ul>
-        <ul>
-            <li><h3>Get in touch</h3></li>
-            <li><a href=\"https://alexandra.cool/contact/\">Contact</a></li>
-            <li><a href=\"https://linkedin.com/in/alexandra-adams-237682236\">LinkedIn</a></li>
-        </ul>
-        <ul>
-            <li><h3>Policies</h3></li>
-            <li><a href=\"https://www.northmetrotafe.wa.edu.au/privacy\">Privacy</a></li>
-            <li><a href=\"https://www.wa.gov.au/system/files/2022-01/WA%20Government%20Cyber%20Security%20Policy.pdf\">Security</a></li>
-        </ul>
+            <ul class='design'>
+                <li><h3>Design</h3></li>
+                <li>Inspired by <a href='https://www.rubens.design/'>Rubens Cantuni</a> and <a href='https://catalinonutu.com/'>Cătălin Onuțu</a>.</li>
+            </ul>
+            <ul class='social'>
+                <li><h3>Social</h3></li>
+                <li>
+                    <ul>
+                        <li><a href='mailto:hello@alexandra.cool'><i class='fa-solid fa-envelope'></i></a></li>
+                        <li><a href='https://github.com/trblive'><i class='fa-brands fa-github-alt'></i></a></li>
+                        <li><a href='https://www.linkedin.com/in/alexandra-cool/'><i class='fa-brands fa-linkedin-in'></i></a></li>
+                    </ul>
+                </li>
+            </ul>
+
         </footer>
         </div>";
     $homeScript = "
