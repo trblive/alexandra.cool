@@ -44,14 +44,14 @@ ul {
 /*  ------------------
     1.0 – header
     ------------------ */
-header ul.blur {
-    background-color: rgba(242, 240, 206, 0.5);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-}
-header ul li.blur {
-    background-color: rgba(252, 74, 157, 0.4);
-}
+/*header ul.blur {*/
+/*    background-color: rgba(242, 240, 206, 0.5);*/
+/*    -webkit-backdrop-filter: blur(20px);*/
+/*    backdrop-filter: blur(20px);*/
+/*}*/
+/*header ul li.blur {*/
+/*    background-color: rgba(252, 74, 157, 0.4);*/
+/*}*/
 
 /*  ------------------
     2.0 – main
