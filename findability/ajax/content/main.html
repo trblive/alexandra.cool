@@ -1,0 +1,91 @@
+<main id="content">
+    <hgroup>
+        <h1>AJAX and Findability</h1>
+        <p>A post from my blog – alexandra.blog</p>
+        <a href="https://alexandra.cool/blog/?p=181" target="_blank">View post.</a>
+    </hgroup>
+    <section>
+        <h2>what even is ajax, anyway?</h2>
+        <p>AJAX is a programming concept for the creation of asynchronous web applications that can send and receive
+            data from the server without the need for a full page reload. The functionality behind AJAX, the
+            XMLHttpRequest object, first appeared with the release of Internet Explorer 5.0 in March 1999. The term AJAX
+            was not coined until February 2005 by Jesse James Garret, in an article named Ajax: A New Approach to Web
+            Applications (T4Tutorials, n.d.).</p>
+        <p>AJAX stands for Asynchronous JavaScript and XML. It is important to note that AJAX is not a programming
+            language, but rather a combination of existing technologies that are used together to develop dynamic and
+            responsive web applications.
+        </p>
+        <p>Initially, AJAX comprised of the following technologies:</p>
+        <ul>
+            <li>HTML or XHTML and CSS to mark up and style the information on the screen.</li>
+            <li>Document Object Model (DOM) to dynamically display and interact with the information.</li>
+            <li>HTML, plain text, or XML and XSLT, to transfer and manipulate data between the web server and the
+                browser.</li>
+            <li>The XMLHttpRequest Object built into the browser, to request and manipulate data from the server
+                asynchronously.</li>
+            <li>JavaScript to link all these technologies together.</li>
+        </ul>
+        <p>Although the ‘X’ stands for XML, it has become far more common to use JSON to transport data, instead of XML
+            and XLST, as it is written in JavaScript (Mozilla, n.d.-a).</p>
+
+        <h2>what does it do?</h2>
+        <p>AJAX allows web pages to send and request data from the server asynchronously – as in, tasks and processes
+            are not tied to a specific timing or sequence and operate independently of one another. This means that the
+            web page does not need to wait for a response from the server before it begins processing other tasks,
+            allowing parts of the page to be updated in real time without the need for a full page reload. AJAX allows
+            the client-side of a web application to communicate with the server side, which was not possible before it
+            was introduced.</p>
+
+        <h2>how does it work?</h2>
+        <div class="figure">
+            <figure>
+                <img src="images/traditionalWebAppModel.gif">
+                <figcaption>Traditional web app model</figcaption>
+            </figure>
+            <figure>
+                <img src="images/ajaxWebAppModel.gif">
+                <figcaption>AJAX web app model</figcaption>
+            </figure>
+        </div>
+        <p>In the AJAX model, the event is triggered by some action in the user interface (such as the page loading, or
+            a button being clicked). The browser then uses JavaScript to create a new XMLHttpRequest Object, which then
+            sends a request to the server using XML. The server processes the request and retrieves any required data
+            from the database and sends that data back to the client – also in XML. A call-back JavaScript function
+            catches and processes the response and updates the web page to display the updated content (IBM, 2021).</p>
+        <p>An example of AJAX that you will be familiar with is Google’s Autocomplete feature, where search suggestions
+            appear as you type. With each keystroke, the suggested results are updated based on your input
+            (Great Learning, n.d.). Another interesting example is Netflix’s rating feature; when you like (or dislike)
+            a movie or show, your preference is immediately saved to your database without needing to refresh the page
+            (Davu, 2020).</p>
+
+        <h2>what does it mean for findability?</h2>
+        <p>AJAX is very cool, but can pose some challenges with findability that are worth being mindful of. Since AJAX
+            is generally used to load content dynamically, this can mean that the content may not be present in the HTML
+            at the initial page load, and so it is harder for search engine crawlers to find and index that content.
+            Additionally, AJAX-loaded content can potentially raise challenges for users using assistive technology. For
+            example, changes in the page content may not be detected by screen readers, so the user may not be alerted
+            to the new content. Alternatively, screen readers may detect and announce every single small change in
+            content, creating a disruptive and noisy experience for the user. Additionally, if the new content does not
+            automatically use focus trapping, keyboard-only users may have difficulty navigating the webpage.</p>
+        <p>AJAX is not necessarily “bad” for SEO – when done properly, these kinds of concerns are easily mitigated.
+            Progressive enhancement and fallback content are ways to make sure that core content is indexed
+            (McQuaide, 2018). Core content should be readily accessible without JavaScript and can be further enhanced
+            with AJAX once the page loads. Fallback content should also include all important content in its HTML in
+            case JavaScript fails.</p>
+        <p>Screen reader accessibility can be achieved with the correct use of ARIA attributes, as these are used to
+            provide context and pass interactive and dynamic content to assistive technologies. (On the other hand, bad
+            ARIA can be far worse than not using it at all) (Mozilla, n.d.-b). When developing interactive and dynamic
+            content, make sure that everything can be navigated by keyboard alone, and manage keyboard focus as new
+            content appears (Sarkar, 2021).</p>
+        <h2>tl;dr</h2>
+        <p>AJAX allows for the creation of dynamic and responsive applications that can enhance the user experience a
+            great deal. This is a very powerful capability, but it’s important to be mindful of its implications for
+            findability and accessibility. Following best practices ensures that developers can use AJAX to enhance
+            their applications, while still making sure that their applications are accessible and findable.</p>
+    </section>
+    <ul class="pagination">
+        <li><a href="https://alexandra.cool/findability/"><i class="fa-solid fa-arrow-left-long"></i>Previous module</a></li>
+        <li><a href="https://alexandra.cool/findability/">Findability Home</a></li>
+        <li><a href="https://alexandra.cool/findability/">Next module<i class="fa-solid fa-arrow-right-long"></i></a></li>
+    </ul>
+</main>

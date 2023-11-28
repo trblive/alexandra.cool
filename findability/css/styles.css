@@ -1,0 +1,135 @@
+/*
+        Table of Contents
+        ------------------
+        :: 0.0 – main
+        ------------------
+        :: 1.0 – media queries
+        ------------------
+*/
+
+/*  ------------------
+    1.0 – main
+    ------------------ */
+section {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--border-color);
+    gap: var(--border-width);
+    padding: 0;
+}
+section > * {
+    background-color: var(--theme1);
+    flex: 1;
+    overflow: hidden;
+    flex-basis: calc((100% - (2 * var(--border-width))));
+}
+section > *:focus {
+    outline: none;
+}
+section > *:hover .btn-link, section > *:focus .btn-link {
+    transform: scale(1.05);
+    background-color: var(--focus-bg);
+    color: var(--focus-text);
+    outline: none;
+    box-shadow: inset 0 0 0 1px var(--focus-outline);
+}
+.btn-link {
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    width: fit-content;
+    margin: calc(-1.25rem - var(--border-width)) auto 1rem;
+    padding: 0 2rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    text-decoration: underline;
+    text-decoration-color: var(--text-decoration);
+    text-decoration-thickness: var(--border-width);
+    text-underline-offset: 2px;
+    text-align: center;
+    border: var(--border-width) solid var(--border-color);
+    border-radius: 25px;
+    transition: transform 0.5s;
+    position: relative;
+}
+.img-link {
+    display: block;
+    position: relative;
+    height: 250px;
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+.img-link p {
+    color: var(--black);
+    font-family: Tan-Paradiso, sans-serif;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.img-link p::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: calc(var(--border-width) * 2);
+    background-color: var(--text-decoration);
+    transition: width 0.3s;
+}
+.img-link:hover p::after, .img-link:focus p::after {
+    width: 100%;
+    left: 0;
+    right: auto;
+}
+.img-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.about img, .ajax img {
+    padding: calc(var(--body-padding) / 2) var(--body-padding) var(--body-padding);
+}
+.about .img-link {
+    background:
+        radial-gradient(circle at 60% 100%, var(--white) 0%, transparent 50%),
+        radial-gradient(circle at 20% 90%, var(--theme3) 0%, var(--theme2) 50%, var(--theme1) 90%);
+}
+.seo .img-link {
+    background:
+        radial-gradient(circle at 40% 80%, var(--white) 0%, transparent 70%),
+        radial-gradient(circle at 55% 0%, var(--theme5) 0%, var(--theme3) 50%, var(--theme2) 90%);
+}
+.ajax .img-link {
+    background:
+        radial-gradient(circle at top left, var(--white) 0%, transparent 70%),
+        radial-gradient(circle at 90% -10%, var(--theme1) 0%, var(--theme5) 50%, var(--theme6) 90%);
+}
+.resources .img-link {
+    background:
+        radial-gradient(circle at 80% -40%, var(--white) 0%, transparent 70%),
+        radial-gradient(circle at -60% 50%, var(--white) 0%, transparent 70%),
+        radial-gradient(circle at 10% 110%, var(--theme1) 0%, var(--theme2) 50%, var(--theme4) 100%);
+}
+.vocab .img-link {
+    background:
+        radial-gradient(at -10% -20%, var(--theme5) 0%, transparent 40%),
+        radial-gradient(circle at 110% 0%, var(--theme5) 0%, transparent 40%),
+        linear-gradient(190deg, var(--theme5) -10%, transparent 40%),
+        linear-gradient(60deg, var(--theme1) 0%, var(--theme2) 40%, var(--theme3) 80%);
+}
+
+
+/*  ------------------
+    5.0 – media queries
+    ------------------ */
+@media screen and (min-width: 600px) {
+    section > * {
+        flex-basis: calc((100% - (2 * var(--border-width))) / 2);
+    }
+}
+@media screen and (min-width: 950px) {
+    section > * {
+        flex-basis: calc((100% - (2 * var(--border-width))) / 3);
+    }
+}
