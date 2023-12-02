@@ -50,7 +50,7 @@ $header = "
                 <div class='nav-home'>
                     <a href='https://alexandra.cool/findability/'>Findability</a>
                 </div>                
-                <div>
+                <div class='theme'>
                     <input type='checkbox' id='theme-toggle' class='toggle--checkbox' />
                     <label for='theme-toggle' class='toggle--label''>
                       <span class='toggle--label-background'></span>

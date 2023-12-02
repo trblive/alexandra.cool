@@ -1,0 +1,20 @@
+/*
+        Table of Contents
+        ------------------
+        :: 0.0 – general
+        ------------------
+*/
+
+/*  ------------------
+    0.0 – general
+    ------------------ */
+@media only screen and (min-width: 501px) {
+    #wrapper {
+        height: 100vh;
+        background-color: var(--bg-color);
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+    }
+}

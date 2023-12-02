@@ -82,6 +82,17 @@ var U = {
         }
 
         U.setTheme(theme, mode);
+    },
+
+    stickyNav: function() {
+        'use strict';
+
+        var header = document.querySelector('header');
+        var nav = document.querySelector('.nav');
+
+        let navOffset = nav.getBoundingClientRect().top;
+
+        header.style.top = '-' + navOffset + 'px';
     }
 }
 
