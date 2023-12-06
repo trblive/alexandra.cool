@@ -1,4 +1,4 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/alexandra.cool/findability/resources/includes/helpers.inc.php';?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/findability/resources/includes/helpers.inc.php';?>
 
 <main id="content">
     <hgroup>
@@ -29,6 +29,7 @@
         </table>
         <ul class="login">
             <li><a href="admin/">Admin portal</a></li>
+            <li><a href="filestore/">Upload a file</a></li>
         </ul>
     </section>
     <ul class="pagination">

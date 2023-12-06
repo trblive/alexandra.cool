@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/findability/resources/admin/admins/index.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/findability/resources/admin/categories/index.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/findability/resources/admin/resources/index.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/findability/resources/filestore/index.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/findability/resources/includes/access.inc.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/findability/resources/index.php" dialect="GenericSQL" />
+  </component>
+</project>

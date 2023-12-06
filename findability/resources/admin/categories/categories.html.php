@@ -1,4 +1,4 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/alexandra.cool/findability/resources/includes/helpers.inc.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/findability/resources/includes/helpers.inc.php'; ?>
 <main id="content">
     <hgroup>
         <h1>Manage Categories</h1>

@@ -1,14 +1,14 @@
 <?php
 
-$includes = $_SERVER['DOCUMENT_ROOT'] . '/alexandra.cool/findability/resources/includes/';
+$includes = $_SERVER['DOCUMENT_ROOT'] . '/findability/resources/includes/';
 
 require_once $includes . 'access.inc.php';
 
-$styleTemplate = 'http://localhost/alexandra.cool/findability/css/template.css';
-$utilities = 'http://localhost/alexandra.cool/findability/js/utilities.js';
+$styleTemplate = '../../../css/template.css';
+$utilities = '../../../js/utilities.js';
 $title = 'Manage Resources';
 
-include $_SERVER['DOCUMENT_ROOT'] . '/alexandra.cool/findability/template/template.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/findability/template/template.php';
 echo $head;
 echo $wrapper;
 echo $header;

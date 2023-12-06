@@ -8,7 +8,7 @@
 
 </main>
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/alexandra.cool/findability/template/template.php';
-$utilities = 'http://localhost/alexandra.cool/findability/js/utilities.js';
+include $_SERVER['DOCUMENT_ROOT'] . '/findability/template/template.php';
+$utilities = 'https://alexandra.cool/findability/js/utilities.js';
 echo $footer;
 echo $script;

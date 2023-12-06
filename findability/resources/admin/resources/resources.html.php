@@ -1,5 +1,5 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/alexandra.cool/findability/resources/includes/helpers.inc.php'; ?>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/alexandra.cool/findability/template/template.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/findability/resources/includes/helpers.inc.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/findability/template/template.php'; ?>
 <main id="content">
     <hgroup>
         <h1>Search Results</h1>

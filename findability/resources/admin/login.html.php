@@ -1,4 +1,4 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/alexandra.cool/findability/resources/includes/helpers.inc.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/findability/resources/includes/helpers.inc.php'; ?>
 	
 <main id="content">
     <hgroup>
@@ -44,7 +44,7 @@
                                                     is triggered - Page 291 -->
           </div>
         </form>
-        <p><a href="http://localhost/alexandra.cool/findability/resources/admin/" class="home-link">Return to CMS home</a></p><!--
+        <p><a href="https://alexandra.cool/findability/resources/admin/" class="home-link">Return to CMS home</a></p><!--
                                                 5.	A user might request a protected page by accident, or might be unaware that a
                                                     page is protected until they see the login form. We therefore provide a link
                                                     back to an unprotected page as a way

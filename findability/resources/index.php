@@ -1,6 +1,6 @@
 <?php
 
-$includes = $_SERVER['DOCUMENT_ROOT'] . '/alexandra.cool/findability/resources/includes/';
+$includes = $_SERVER['DOCUMENT_ROOT'] . '/findability/resources/includes/';
 $errorpath = $includes . 'error.html.php';
 
 include_once  $includes . 'db.inc.php';
@@ -34,7 +34,7 @@ foreach ($result as $row)
 $title = 'resources – findability project';
 $styleTemplate = '../css/template.css';
 $utilities = '../js/utilities.js';
-include $_SERVER['DOCUMENT_ROOT'] . '/alexandra.cool/findability/template/template.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/findability/template/template.php';
 echo $head;
 echo $wrapper;
 echo $header;
