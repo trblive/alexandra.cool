@@ -10,23 +10,23 @@
 /*  ------------------
     1.0 – main
     ------------------ */
-section {
+.section {
     display: flex;
     flex-wrap: wrap;
     background-color: var(--border-color);
     gap: var(--border-width);
     padding: 0;
 }
-section > * {
+.section > * {
     background-color: var(--theme1);
     flex: 1;
     overflow: hidden;
     flex-basis: calc((100% - (2 * var(--border-width))));
 }
-section > *:focus {
+.section > *:focus {
     outline: none;
 }
-section > *:hover .btn-link, section > *:focus .btn-link {
+.section > *:hover .btn-link, .section > *:focus .btn-link {
     transform: scale(1.05);
     background-color: var(--focus-bg);
     color: var(--focus-text);
@@ -124,12 +124,12 @@ section > *:hover .btn-link, section > *:focus .btn-link {
     5.0 – media queries
     ------------------ */
 @media screen and (min-width: 600px) {
-    section > * {
+    .section > * {
         flex-basis: calc((100% - (2 * var(--border-width))) / 2);
     }
 }
 @media screen and (min-width: 950px) {
-    section > * {
+    .section > * {
         flex-basis: calc((100% - (2 * var(--border-width))) / 3);
     }
 }

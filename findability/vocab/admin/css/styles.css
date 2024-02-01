@@ -1,0 +1,41 @@
+/*
+        Table of Contents
+        ------------------
+        :: 1.0 – resource table
+        ------------------
+        :: 2.0 – form
+        ------------------
+*/
+
+/*  ------------------
+    1.0 – resource table
+    ------------------ */
+.section {
+    overflow: scroll;
+}
+table {
+    border-collapse: collapse;
+}
+tr {
+    min-width: 0;
+}
+tr:nth-child(1) {
+    border-bottom: var(--border-width) solid var(--text-color);
+}
+th {
+    padding: var(--nav-padding);
+}
+td {
+    padding: var(--nav-padding);
+    font-size: 1rem;
+    border-left: 1px solid var(--text-color);
+}
+td:nth-child(1){
+    border: none;
+    width: 50px;
+    text-align: center;
+}
+td:nth-child(4) {
+    width: 155px;
+    box-sizing: content-box;
+}

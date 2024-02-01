@@ -31,6 +31,10 @@ th:nth-child(1) {
 td {
     padding: var(--nav-padding);
     font-size: 1rem;
+    border-left: 1px solid var(--text-color);
+}
+td:nth-child(1) {
+    border: none;
 }
 td:nth-child(1) a {
     color: var(--text-decoration);
@@ -39,7 +43,6 @@ td:nth-child(1) a {
     text-decoration-thickness: var(--border-width);
     text-underline-offset: 2px;
 }
-td:nth-child(2), td:nth-child(3) {
+td:nth-child(3), td:nth-child(4) {
     text-align: center;
-    border-left: 1px solid var(--text-color);
 }

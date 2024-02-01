@@ -4,7 +4,7 @@
     <hgroup>
         <h1>Search Results</h1>
     </hgroup>
-    <section>
+    <div class="section">
         <?php if (isset($resources)): ?>
             <table>
                 <tr>
@@ -35,7 +35,7 @@
             <li><?php include '../logout.inc.html.php'; ?></li>
         </ul>
         <a href=".." class="home-link">Return to CMS home</a>
-    </section>
+    </div>
 </main>
 <?php
 echo $footer;

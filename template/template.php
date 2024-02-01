@@ -3,10 +3,20 @@
     global $styleTemplate;
     global $heading;
     global $subtext;
+    global $credit;
     $head = "
 <!DOCTYPE html>
 <html lang=\"en\">
     <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-6W5DDS77YJ\"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-6W5DDS77YJ');
+        </script>
         <meta charset=\"utf-8\">
         <meta name=\"description\" content=\"A personal portfolio of my work and experience as a web development student.\">
         <meta name=\"keywords\" content=\"front-end, portfolio, student, web development\">
@@ -19,17 +29,7 @@
         <link href=\"$styleTemplate\" rel=\"stylesheet\">
         <link href=\"css/styles.css\" rel=\"stylesheet\">
         <script src=\"https://kit.fontawesome.com/c1da7bdf26.js\" crossorigin=\"anonymous\" async></script>
-    </head>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-6W5DDS77YJ\"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        
-        gtag('config', 'G-6W5DDS77YJ');
-    </script>";
+    </head>";
 
     $wrapper = "
     <body>
@@ -58,31 +58,18 @@
             </nav>
         </header>";
 
-    $main = "
-        <main id=\"maincontent\">
-            <hgroup id=\"hgroup\">
-                <h1>$heading</h1>
-                <p>$subtext</p>
-            </hgroup>";
-
     $footer = "
-        </main>
         <footer>
-            <ul class='design'>
-                <li><h3>Design</h3></li>
-                <li>Inspired by <a href='https://www.rubens.design/'>Rubens Cantuni</a> and <a href='https://catalinonutu.com/'>Cătălin Onuțu</a>.</li>
+            <ul>
+                <li><a href='https://alexandra.cool/resume/'>Resume</a></li>
+                <li><a href='https://alexandra.cool/contact/'>Contact</a></li>
             </ul>
+            $credit
             <ul class='social'>
-                <li><h3>Social</h3></li>
-                <li>
-                    <ul>
-                        <li><a href='mailto:hello@alexandra.cool'><i class='fa-solid fa-envelope'></i></a></li>
-                        <li><a href='https://github.com/trblive'><i class='fa-brands fa-github-alt'></i></a></li>
-                        <li><a href='https://www.linkedin.com/in/alexandra-cool/'><i class='fa-brands fa-linkedin-in'></i></a></li>
-                    </ul>
-                </li>
+                <li><a href='mailto:hello@alexandra.cool'><i class='fa-solid fa-envelope'></i></a></li>
+                <li><a href='https://github.com/trblive'><i class='fa-brands fa-github-alt'></i></a></li>
+                <li><a href='https://www.linkedin.com/in/alexandra-cool/'><i class='fa-brands fa-linkedin-in'></i></a></li>
             </ul>
-
         </footer>
         </div>";
     $homeScript = "
@@ -100,5 +87,3 @@
         <script src=\"js/script.js\"></script>
     </body>
 </html>";
-?>
-            

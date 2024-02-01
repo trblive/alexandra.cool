@@ -122,14 +122,14 @@ var U = {
     keebInput: function () {
         'use strict';
 
-        var inputs = document.querySelectorAll('input');
+        var inputs = document.querySelectorAll('input, img');
 
         inputs.forEach((input) => {
-            U.addEvent(input, 'keypress', function (event) {
+            U.addEvent(input, 'keypress', function (e) {
                 // If the user presses the "Enter" key on the keyboard
-                if (event.key === "Enter") {
+                if (e.key === 'Enter') {
                     // Cancel the default action, if needed
-                    event.preventDefault();
+                    e.preventDefault();
 
                     // Trigger the button element with a click
                     input.click();

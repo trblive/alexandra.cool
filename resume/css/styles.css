@@ -114,9 +114,12 @@ dd.skills ul {
 }
 .experience .p-experience .p-name {
     font-style: italic;
+    display: inline-block;
 }
 .duration {
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .dt-start:before {
     content: "(";
@@ -128,13 +131,14 @@ dd.skills ul {
     content: ")";
 }
 .line1 {
-    padding-bottom: 10px
+    padding-bottom: 10px;
+    position: relative;
 }
-.portfolio .line2 {
+.experience .line2, .portfolio .line2 {
     padding-bottom: 5px
 }
-.portfolio .line2 span {
-    font-size: 11px;
+.experience .line2 span, .portfolio .line2 span {
+    font-size: 12px;
     color: gray;
     font-weight: 600
 }
@@ -178,6 +182,9 @@ dd.skills ul {
 footer {
     background-color: white;
     border-top: 1px solid #1E1E1C;
+}
+footer p {
+    font-size: 14px;
 }
 
 /*  ------------------

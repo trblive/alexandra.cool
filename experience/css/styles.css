@@ -4,23 +4,24 @@
         ------------------
         :: 0.0 – general
         ------------------
-        :: 1.0 – header
+        :: 1.0 – main
+            // 1.1 – password popup
+            // 1.2 – accordion
         ------------------
-        :: 2.0 – main
-            // 2.1 – opening button
-            // 2.2 – 'hello world'
-            // 2.3 – personal info
-            // 2.4 – more
+        :: 2.0 – footer
         ------------------
-        :: 3.0 – footer
+        :: 3.0 – animations
+            // 3.1 – keyframe definitions
+            // 3.2 – keyframe assignments
         ------------------
-        :: 4.0 – animations
-            // 4.1 – keyframe definitions
-            // 4.2 – keyframe assignments
-        ------------------
-        :: 5.0 – media queries
+        :: 4.0 – media queries
         ------------------
 */
+
+:root {
+    --black: #1E1E1C;
+    --acc-padding: 30px;
+}
 
 /*  ------------------
     0.0 – general
@@ -30,9 +31,17 @@
     overscroll-behavior: contain;
     background-color: #FF7DBA;
     height: 100vh ;
+
+    & #skipnav {
+        display: none;
+    }
 }
 #wrapper.unlocked {
     background-color: #78D7FF;
+
+    & #skipnav {
+        display: block;
+    }
 }
 h2 {
     padding: 0 0 20px 0;
@@ -40,32 +49,12 @@ h2 {
 }
 h3 {
     font-size: 1.5em;
-    margin: 0;
-}
-p {
-    font-size: 1.25em;
-}
-#wrapper.locked #skipnav {
-    display: none;
-}
-#wrapper.unlocked #skipnav {
-    display: block;
 }
 
 /*  ------------------
-    1.0 – header
-    ------------------ */
-header ul.blur {
-    background-color: rgba(108, 181, 212, 0.5);
-}
-header ul li.blur {
-    background-color: rgba(199, 238, 255, 0.5);
-}
+    1.0 – main
 
-/*  ------------------
-    2.0 – main
-
-    // 2.1 – password popup
+    // 1.1 – password popup
     ------------------ */
 #wrapper.locked #popup {
     display: block;
@@ -73,135 +62,169 @@ header ul li.blur {
 #wrapper.unlocked #popup {
     display: none;
 }
-#popup  {
+#popup {
     width: 30%;
     min-width: 355px;
-    padding: 30px;
+    padding: var(--acc-padding);
     background-color: white;
-    border: 2px solid black;
+    border: var(--border-width) solid var(--black);
     border-radius: 16px;
-    box-shadow: 7px 7px black;
+    box-shadow: 7px 7px var(--black);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-}
-#popup p:has(code) {
-    line-height: 1.6;
-}
-#passwordInput {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    position: relative;
-    width: 100%;
-    margin-bottom: 10px;
-    gap: 10px;
-}
-label {
-    width: 70%;
-}
-input[type="text"] {
-    padding: 10px;
-    width: 100%;
-    border: 1px solid black;
-    border-radius: 7px;
-}
-input[type="submit"] {
-    padding: 10px;
-    width: 27%;
-    min-width: 76px;
-    border: 1px solid black;
-    border-radius: 7px;
-    background-color: #AEB1FC;
-    cursor: pointer;
+
+    & p:has(code) {
+        line-height: 1.6;
+
+        & code {
+            font-size: 0.8em;
+        }
+    }
+
+    & #passwordInput {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+        margin-bottom: 10px;
+        gap: 10px;
+
+        & label {
+            width: 70%;
+
+            & input[type="text"] {
+                padding: 10px;
+                width: 100%;
+                border: 1px solid var(--black);
+                border-radius: 7px;
+            }
+        }
+
+        & input[type="submit"] {
+            padding: 10px;
+            width: 27%;
+            min-width: 76px;
+            border: 1px solid var(--black);
+            border-radius: 7px;
+            background-color: #AEB1FC;
+            cursor: pointer;
+        }
+    }
 }
 
 /*  ------------------
-    // 2.3 – accordion
+    // 1.2 – accordion
     ------------------ */
 #accordionSection {
-    border-top: 2px solid #1E1E1C;
+    border-top: var(--border-width) solid var(--black);
     display: flex;
     justify-content: center;
     background-color: white;
-    margin-bottom: -2px;
-}
-dl {
-    display: flex;
-    flex-flow: column nowrap;
-    width: 70%;
-    margin: 0;
-}
-dt a {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-    padding: 20px 30px;
-    margin-top: -2px;
-    border: 2px solid #1E1E1C;
-    transition: 0.4s;
-    cursor: pointer;
-}
-dt a:focus {
-    padding: 20px 30px !important;
-    border-radius: 0 !important;
-}
-dt p, dt i {
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.5em;
-    font-family: Source-Code, sans-serif;
-}
-dt p {
-    min-width: 50px;
-    margin: 0;
-}
-dt i {
-    transition: 0.4s;
-    min-width: 20px;
-}
-.rotate {
-    transform: rotate(45deg);
-}
-dd {
-    margin: 0; 
-    border-left: 2px solid #1E1E1C;
-    border-right: 2px solid #1E1E1C;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-}
-dd ul {
-    margin: 30px;
-    padding: 0 25px;
-}
-dd:nth-child(2) {
-    background-color: #FF7DBA;
-}
-dd:nth-child(4) {
-    background-color: #ffc347;
-}
-dd:nth-child(6) {
-    background-color: #AEB1FC;
-}
-dd:nth-child(8) {
-    background-color: #ffc347;
-}
-dd:nth-child(10) {
-    background-color: #FF7DBA;
-}
-dd ul li {
-    padding: 0 0 0 15px;
-    font-size: 1.15em;
-    margin: 8px 0;
+
+    & dl {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 70%;
+        margin: 0;
+
+        & dt {
+            & a {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+                gap: var(--acc-padding);
+                padding: calc(var(--acc-padding) * 2/3) var(--acc-padding);
+                margin-top: -2px;
+                border: var(--border-width) solid var(--black);
+                transition: 0.4s;
+                cursor: pointer;
+
+                &:focus {
+                    padding: calc(var(--acc-padding) * 2/3) var(--acc-padding) !important;
+                    border-radius: 0 !important;
+                }
+            }
+
+            & p, & i {
+                text-align: center;
+                font-family: Source-Code, sans-serif;
+            }
+
+            & p {
+                font-weight: 600;
+                font-size: 1.25rem;
+                min-width: 48px;
+                margin: 0;
+
+                &.date {
+                    text-align: left;
+                }
+            }
+
+            & i {
+                font-size: 2rem;
+                font-weight: 400;
+                transition: 0.4s;
+
+                &.rotate {
+                    transform: rotate(45deg);
+                }
+            }
+
+            &:nth-child(11) a {
+                border-bottom: 0;
+            }
+        }
+
+        & dd {
+            margin: 0;
+            border-left: var(--border-width) solid var(--black);
+            border-right: var(--border-width) solid var(--black);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+
+            & ul {
+                margin: 0;
+                padding: var(--acc-padding) calc(var(--acc-padding) * 2);
+
+                & li {
+                    font-size: 1.1rem;
+                    padding: 0 0 0 calc(var(--acc-padding) / 2);
+                    margin: 8px 0;
+                }
+            }
+
+            &:nth-child(2), &:nth-child(10) {
+                background-color: #FF7DBA;
+            }
+
+            &:nth-child(4), &:nth-child(12) {
+                background-color: #78D7FF;
+            }
+
+            &:nth-child(6) {
+                background-color: #ffc347;
+            }
+
+            &:nth-child(8) {
+                background-color: #AEB1FC;
+            }
+
+            &:nth-child(12) ul {
+                border-top: var(--border-width) solid var(--black);
+            }
+        }
+    }
 }
 
 /*  ------------------
-    3.0 – footer
+    2.0 – footer
     ------------------ */
 footer {
     display: none;
@@ -209,10 +232,10 @@ footer {
 }
 
 /*  ------------------
-    4.0 – animations
+    3.0 – animations
     ------------------
 
-    // 4.1 – keyframe definition
+    // 3.1 – keyframe definition
     ------------------ */
 @keyframes shaking {
     0% { transform: translateX(-50%) translateY(-50%) }
@@ -223,16 +246,16 @@ footer {
 }
 
 /*  ------------------
-    // 4.2 – keyframe & transition assignment
+    // 3.2 – keyframe & transition assignment
     ------------------
-        4.2.1 – nav
-        4.2.2 – heading
-        4.2.3 – accordion
-        4.2.4 – footer
-        4.2.5 – password popup
+        3.2.1 – nav
+        3.2.2 – heading
+        3.2.3 – accordion
+        3.2.4 – footer
+        3.2.5 – password popup
     ------------------
 
-    // 4.2.1 – nav
+    // 3.2.1 – nav
     ------------------*/
 nav {
     transform: translateY(-40%);
@@ -240,14 +263,14 @@ nav {
     opacity: 0;
 }
 #wrapper.unlocked nav {
-    transform: translateY(0);
+    transform: none;
     opacity: 1;
     transition-delay: 2s;
     animation-delay: 2s;
 }
 
 /*  ------------------
-    // 4.2.2 – heading
+    // 3.2.2 – heading
     ------------------ */
 #wrapper hgroup {
     transform: translateY(-20%);
@@ -256,7 +279,7 @@ nav {
     opacity: 0;
 }
 #wrapper.unlocked hgroup {
-    transform: translateY(0);
+    transform: none;
     animation: fadeIn 1s;
     transition-delay: 2s;
     animation-delay: 2s;
@@ -264,7 +287,7 @@ nav {
 }
 
 /*  ------------------
-    // 4.2.3 – accordion
+    // 3.2.3 – accordion
     ------------------ */
 #wrapper #accordionSection {
     transform: translateY(20%);
@@ -273,14 +296,14 @@ nav {
     opacity: 0;
 }
 #wrapper.unlocked #accordionSection {
-    transform: translateY(0);
+    transform: none;
     animation: fadeIn 1s forwards;
     transition-delay: 2s;
     animation-delay: 2s;
 }
 
 /*  ------------------
-    // 4.2.4 – footer
+    // 3.2.4 – footer
     ------------------ */
 #wrapper.unlocked footer {
     display: flex;
@@ -289,69 +312,62 @@ nav {
 }
 
 /*  ------------------
-    // 4.2.5 – password popup
+    // 3.2.5 – password popup
     ------------------ */
 #popup.shaking {
     animation: shaking 0.2s ease;
 }
 
 /*  ------------------
-    5.0 – media queries
+    4.0 – media queries
     ------------------ */
-@media only screen and (max-width: 830px) {
-    dl {
+@media only screen and (max-width: 970px) {
+    #accordionSection dl {
         width: 80%;
     }
 }
-@media only screen and (max-width: 740px) {
-    main main h1 {
-        font-size: 60px;
-    }
-    dl {
+@media only screen and (max-width: 850px) {
+    #accordionSection dl {
         width: 100%;
-    }
-    dt {
-        border-left: 0;
-        border-right: 0;
-    }
-    dd {
-        border: 0;
+
+        & dt a {
+            border-left: 0;
+            border-right: 0;
+        }
+        & dd {
+            border: 0;
+        }
     }
 }
 @media only screen and (max-width: 640px) {
     header {
         transform: translateY(-40%);
-    }
-    #wrapper header {
         transition: 0.3s;
         transition-timing-function: ease-out;
         opacity: 0;
     }
     #wrapper.unlocked header {
-        transform: translateY(0);
+        transform: none;
         animation: fadeIn 1s;
         transition-delay: 2s;
         animation-delay: 2s;
         opacity: 1;
     }
-}
-@media only screen and (max-width: 570px) {
-    dt p, dt i {
-        font-size: 1.25em;
-    }
+
 }
 @media only screen and (max-width: 500px) {
     #popup {
         width: 70%;
         min-width: 0;
-    }
-    #popup h3 {
-        font-size: 1.25em;
-        padding: 0 0 10px 0;
-    }
-    #popup p {
-        font-size: 1em;
-        margin: 10px 0;
+
+        & h3 {
+            font-size: 1.25em;
+            padding: 0 0 10px 0;
+        }
+        & p {
+            font-size: 1em;
+            margin: 10px 0;
+        }
     }
 }
 @media only screen and (max-width: 480px) {
@@ -359,36 +375,42 @@ nav {
         width: 80%;
     }
 }
-@media only screen and (max-width: 440px) {
-    main h1 {
-        font-size: 50px;
-    }
-}
 @media only screen and (max-width: 415px) {
     #passwordInput {
         flex-flow: row wrap;
         justify-content: center;
-    }
-    label {
-        width: 100%;
+
+        & label {
+            width: 100%;
+        }
     }
 }
-@media only screen and (max-width: 390px) {
-    main h1 {
-        font-size: 40px;
+@media only screen and (max-width: 380px) {
+    #accordionSection dl {
+        & dt a i {
+            font-size: 1.5rem;
+            line-height: 0.8;
+            height: 20px;
+        }
+        & dd ul li {
+            font-size: 1rem;
+        }
     }
-    dd ul li {
-        font-size: 1em;
-    }
-
 }
 @media only screen and (max-width: 355px) {
-    dt {
-        gap: 15px;
-        padding: 20px;
-    }
-    dd ul {
-        margin: 20px;
-        padding: 0 20px;
+    #accordionSection dl {
+        & dt a {
+            flex-wrap: wrap;
+            gap: 0;
+
+            & .role {
+                order: 3;
+                width: 100%;
+                padding-top: 10px;
+            }
+        }
+        & dd ul {
+            padding: 20px 40px;
+        }
     }
 }

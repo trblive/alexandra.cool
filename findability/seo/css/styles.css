@@ -10,25 +10,25 @@
 /*  ------------------
     0.0 – main
     ------------------ */
-section ol {
+.section ol {
     display: flex;
     flex-direction: column;
 }
-section ol li {
+.section ol li {
     margin: 4px 0;
     padding-left: 8px;
 }
-section ul {
+.section ul {
     list-style: none;
 }
-section ul li:not(ul li ul li) {
+.section ul li:not(ul li ul li) {
     position: relative;
 }
-section ul li:not(ul li ul li)::before {
+.section ul li:not(ul li ul li)::before {
     content: '–';
     position: absolute;
     left: -1em;
 }
-section ul li ul {
+.section ul li ul {
     list-style: disc;
 }

@@ -3,7 +3,7 @@
     <hgroup>
         <h1>Manage Resources</h1>
     </hgroup>
-    <section>
+    <div class="section">
         <h2>Search for resource:</h2>
         <p>View resources satisfying the following criteria:</p>
         <form action="" method="get">
@@ -33,7 +33,7 @@
             <li><?php include '../logout.inc.html.php'; ?></li>
         </ul>
         <a href=".." class="home-link">Return to CMS home</a>
-    </section>
+    </div>
 </main>
 
 

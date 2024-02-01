@@ -5,7 +5,7 @@
         <h1>Administrator Login</h1>
         <p>Please log in to view the page that you requested.</p>
     </hgroup>
-    <section>
+    <div class="section">
         <?php if (isset($loginError)): ?><!-- 	1. 	If the user submits the login form with an incorrect email
                                                     address or password, the user will be denied access, simply
                                                     being presented with the login form again. We need a way to
@@ -49,6 +49,6 @@
                                                     page is protected until they see the login form. We therefore provide a link
                                                     back to an unprotected page as a way
                                                     out - Page 291 -->
-    </section>
+    </div>
 </main>
 

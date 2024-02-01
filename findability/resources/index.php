@@ -5,11 +5,20 @@ $errorpath = $includes . 'error.html.php';
 
 include_once  $includes . 'db.inc.php';
 
+$title = 'resources – findability project';
+$styleTemplate = '../css/template.css';
+$utilities = '../js/utilities.js';
+include $_SERVER['DOCUMENT_ROOT'] . '/findability/template/template.php';
+echo $head;
+echo $wrapper;
+echo $header;
+
 try
 {
-    $sql = 'SELECT resourceID, resourceName, url, resourceDate, adminName, email
-        FROM resources INNER JOIN admin
-            ON resources.adminID = admin.adminID';
+    $sql = 'SELECT resources.resourceID, resourceName, url, resourceDate, adminName, email, categoryName, categories.categoryID FROM resources 
+    INNER JOIN admin ON resources.adminID = admin.adminID
+    INNER JOIN resourceCategories ON resources.resourceID = resourceCategories.resourceID
+    INNER JOIN categories ON resourceCategories.categoryID = categories.categoryID';
     $result = $pdo->query($sql);
 }
 catch (PDOException $e)
@@ -27,17 +36,11 @@ foreach ($result as $row)
         'url' => $row['url'],
         'adminName' => $row['adminName'],
         'email' => $row['email'],
-        'resourceDate' => $row['resourceDate']
+        'resourceDate' => $row['resourceDate'],
+        'category' => $row['categoryName']
     );
 }
 
-$title = 'resources – findability project';
-$styleTemplate = '../css/template.css';
-$utilities = '../js/utilities.js';
-include $_SERVER['DOCUMENT_ROOT'] . '/findability/template/template.php';
-echo $head;
-echo $wrapper;
-echo $header;
 include 'resources.html.php';
 echo $footer;
 echo $script;

@@ -4,7 +4,7 @@
     <hgroup>
         <h1><?php htmlout($title); ?></h1>
     </hgroup>
-    <section>
+    <div class="section">
         <form action="?<?php htmlout($action); ?>" method="post">
             <label for="resourceName">Resource name:
                 <input id="resourceName" name="resourceName" type="text" value="<?php htmlout($resourceName); ?>">
@@ -46,7 +46,7 @@
             </div>
         </form>
         <a href=".." class="home-link">Return to CMS home</a>
-    </section>
+    </div>
 </main>
 <?php
 echo $footer;

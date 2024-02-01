@@ -4,7 +4,7 @@
     <hgroup>
         <h1><?php htmlout($title); ?></h1>
     </hgroup>
-    <section>
+    <div class="section">
         <form action="?<?php htmlout($action); ?>" method="post">
             <label for="name">Name:
                 <input type="text" name="name" id="name" value="<?php htmlout($name); ?>">
@@ -13,7 +13,7 @@
             <input type="submit" value="<?php htmlout($button); ?>">
         </form>
         <a href=".." class="home-link">Return to CMS home</a>
-    </section>
+    </div>
 </main>
 <?php
 echo $footer;

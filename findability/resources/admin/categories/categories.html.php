@@ -3,7 +3,7 @@
     <hgroup>
         <h1>Manage Categories</h1>
     </hgroup>
-    <section>
+    <div class="section">
         <table>
             <tr>
                 <th>Category Name</th>
@@ -30,5 +30,5 @@
             <li><?php include '../logout.inc.html.php'; ?></li>
         </ul>
         <a href=".." class="home-link">Return to CMS home</a>
-    </section>
+    </div>
 </main>

@@ -134,6 +134,13 @@ body {
 .bold {
     font-weight: 600;
 }
+.hidden {
+    display: none;
+}
+.heading-p {
+    width: 100%;
+    text-align: center;
+}
 
 /*  ------------------
     1.0 – header
@@ -181,10 +188,10 @@ nav > *, footer .nav {
 /*  ------------------
     // 1.2 – colour scheme toggle
     ------------------ */
-.toggle--checkbox {
+.toggle-checkbox {
     display: none;
 }
-.toggle--label {
+.toggle-label {
     width: 55px;
     height: 30px;
     background: var(--blue-color);
@@ -195,7 +202,7 @@ nav > *, footer .nav {
     transition: all 350ms ease-in;
 }
 /* sun */
-.toggle--label:before {
+.toggle-label:before {
     box-sizing: border-box;
     animation-name: reverse;
     animation-duration: 350ms;
@@ -213,7 +220,7 @@ nav > *, footer .nav {
     background: var(--yellow-background);
 }
 /* clouds */
-.toggle--label-background {
+.toggle-label-background {
     width: 5px;
     height: 2px;
     border-radius: 5px;
@@ -224,7 +231,7 @@ nav > *, footer .nav {
     transform: translateY(-50%);
     transition: all 150ms ease-in;
 }
-.toggle--label-background:before {
+.toggle-label-background:before {
     content: '';
     position: absolute;
     top: -2px;
@@ -235,7 +242,7 @@ nav > *, footer .nav {
     left: -5px;
     transition: all 150ms ease-in;
 }
-.toggle--label-background:after {
+.toggle-label-background:after {
     content: '';
     position: absolute;
     top: 2px;
@@ -247,12 +254,12 @@ nav > *, footer .nav {
     transition: all 150ms ease-in;
 }
 /* night background */
-.toggle--checkbox:checked + .toggle--label {
+.toggle-checkbox:checked + .toggle-label {
     background: var(--indigo-color);
     border-color: var(--indigo-border);
 }
 /* moon */
-.toggle--checkbox:checked + .toggle--label:before {
+.toggle-checkbox:checked + .toggle-label:before {
     background: var(--white);
     border-color: var(--grey);
     animation-name: switch;
@@ -260,7 +267,7 @@ nav > *, footer .nav {
     animation-fill-mode: forwards;
 }
 /* moon dimples */
-.toggle--label:after {
+.toggle-label:after {
     transition: all 250ms ease-in;
     position: absolute;
     content: '';
@@ -273,23 +280,23 @@ nav > *, footer .nav {
     border-radius: 50%;
     opacity: 0;
 }
-.toggle--checkbox:checked + .toggle--label:after {
+.toggle-checkbox:checked + .toggle-label:after {
     transition-delay: 350ms;
     opacity: 1;
 }
 
 /* stars */
-.toggle--checkbox:checked + .toggle--label .toggle--label-background {
+.toggle-checkbox:checked + .toggle-label .toggle-label-background {
     left: 35%;
     width: 2px;
 }
-.toggle--checkbox:checked + .toggle--label .toggle--label-background:before {
+.toggle-checkbox:checked + .toggle-label .toggle-label-background:before {
     width: 2px;
     height: 2px;
     top: -6px;
     left: -6px;
 }
-.toggle--checkbox:checked + .toggle--label .toggle--label-background:after {
+.toggle-checkbox:checked + .toggle-label .toggle-label-background:after {
     width: 2px;
     height: 2px;
     left: -9px;
@@ -331,7 +338,7 @@ hgroup a {
 hgroup a:hover {
     text-decoration: none;
 }
-section {
+.section {
     padding: calc(var(--body-padding) * 2) var(--body-padding);
     line-height: 1.6;
     font-size: 1.125rem;
@@ -465,7 +472,7 @@ form {
     font-size: 1rem;
     gap: 8px;
 }
-form select, form input[type="text"] {
+form select, form input[type="text"], form textarea {
     margin: 0 8px;
     padding: 4px;
     min-width: 100px;
@@ -480,6 +487,16 @@ form select:focus {
 }
 form input[type="submit"] {
     background-color: var(--theme6);
+}
+form label {
+    width: 100%;
+}
+form textarea {
+    width: 100%;
+    display: block;
+    margin: 8px 0;
+    padding: 8px;
+    font-size: 1em;
 }
 form fieldset {
     border: var(--border-width) solid var(--border-color);
@@ -583,12 +600,12 @@ footer p a {
     }
 }
 @media screen and (min-width: 600px) {
-    section {
+    .section {
         display: grid;
         grid-template-columns: auto [full-start] minmax(0, 3rem) [main-start] minmax(0, 900px) [main-end] minmax(0, 3rem) [full-end] auto;
         gap: 24px 0;
     }
-    section > * {
+    .section > * {
         grid-column: main;
         margin: 0;
     }

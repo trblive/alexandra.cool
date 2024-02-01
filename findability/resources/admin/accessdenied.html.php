@@ -3,8 +3,8 @@
     <hgroup>
         <h1>Access Denied</h1>
     </hgroup>
-    <section>
+    <div class="section">
         <p><?php htmlout($error); ?></p>
         <a href="https://alexandra.cool/findability/resources/admin/">Go home</a>
-    </section>
+    </div>
 </main>

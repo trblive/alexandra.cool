@@ -2,9 +2,9 @@
     <hgroup>
         <h1>Error</h1>
     </hgroup>
-    <section>
+    <div class="section">
         <p><?php echo $error; ?></p>
-    </section>
+    </div>
 
 </main>
 <?php
