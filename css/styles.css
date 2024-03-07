@@ -625,7 +625,6 @@ nav {
         }
 
         & figcaption {
-            font-size: 1.25rem;
             position: absolute;
             width: 100%;
             height: 100%;
@@ -634,6 +633,10 @@ nav {
             opacity: 0;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+
+            & p {
+                font-size: 1rem;
+            }
         }
 
         &:nth-child(even) {
@@ -652,14 +655,14 @@ nav {
             border-right: var(--border-width) solid var(--black);
         }
 
-        &:hover {
+        &:hover, &:focus {
             & figcaption {
                 left: 0 !important;
                 right: 0 !important;
                 opacity: 1;
             }
             & img {
-                opacity: 0.2;
+                opacity: 0.2 !important;
             }
         }
     }
