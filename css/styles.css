@@ -325,6 +325,7 @@ main {
         & .project-info {
             flex-direction: column;
             align-items: flex-start;
+            justify-content: center;
             padding: var(--body-padding);
 
             & ul {
@@ -615,13 +616,14 @@ nav {
     }
 }
 @media only screen and (min-width: 1000px) {
-    .project-card {
-        &.project-info {
-            flex: 3;
+    #projects .project-card {
+
+        & .project-info {
+            flex: 4;
         }
 
         & figure {
-            flex: 7;
+            flex: 6;
         }
 
         & figcaption {
@@ -675,7 +677,7 @@ nav {
             max-width: 50%;
         }
     }
-    .project-card {
+    #projects .project-card {
         flex-direction: column;
 
         & .project-info, & figcaption {
